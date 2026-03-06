@@ -1,0 +1,15 @@
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Sistema Financeiro.exe.config
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Sistema Financeiro.exe
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Sistema Financeiro.pdb
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.csproj.AssemblyReference.cache
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Formularios.Cadastro_de_Cliente.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Properties.Resources.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.csproj.GenerateResource.cache
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.csproj.CoreCompileInputs.cache
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.exe
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.pdb
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Newtonsoft.Json.dll
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Newtonsoft.Json.xml
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema .A36B3528.Up2Date
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Financeiro.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_Relatorios.Rel_Clientes.resources

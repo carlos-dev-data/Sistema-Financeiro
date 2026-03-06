@@ -1,0 +1,16 @@
+[
+  {
+    "caminhoArquivoCliente": "C:\\PROJETO\\Financeiro\\Sistema Financeiro\\Sistema Financeiro\\DataBase\\Clientes.json",
+    "listaCliente": [],
+    "Id": 1,
+    "NomeCompleto": "carlos andre",
+    "Telefone": "(92) 98486-2635"
+  },
+  {
+    "caminhoArquivoCliente": "C:\\PROJETO\\Financeiro\\Sistema Financeiro\\Sistema Financeiro\\DataBase\\Clientes.json",
+    "listaCliente": [],
+    "Id": 2,
+    "NomeCompleto": "Crislene De Oliveira Mendonça",
+    "Telefone": "(92) 99424-5644"
+  }
+]
