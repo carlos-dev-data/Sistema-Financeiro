@@ -44,6 +44,8 @@
             this.Dtw_Tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dtw_Tabela.Location = new System.Drawing.Point(2, 114);
             this.Dtw_Tabela.Name = "Dtw_Tabela";
+            this.Dtw_Tabela.ReadOnly = true;
+            this.Dtw_Tabela.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dtw_Tabela.Size = new System.Drawing.Size(480, 334);
             this.Dtw_Tabela.TabIndex = 0;
             // 

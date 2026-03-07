@@ -3,7 +3,7 @@
     "caminhoArquivoCliente": "C:\\PROJETO\\Financeiro\\Sistema Financeiro\\Sistema Financeiro\\DataBase\\Clientes.json",
     "listaCliente": [],
     "Id": 1,
-    "NomeCompleto": "carlos andre",
+    "NomeCompleto": "Carlos Andre Nascimento",
     "Telefone": "(92) 98486-2635"
   },
   {
@@ -12,5 +12,19 @@
     "Id": 2,
     "NomeCompleto": "Crislene De Oliveira Mendonça",
     "Telefone": "(92) 99424-5644"
+  },
+  {
+    "caminhoArquivoCliente": "C:\\PROJETO\\Financeiro\\Sistema Financeiro\\Sistema Financeiro\\DataBase\\Clientes.json",
+    "listaCliente": [],
+    "Id": 3,
+    "NomeCompleto": "Carlos André Mendonça",
+    "Telefone": "(92) 98486-2635"
+  },
+  {
+    "caminhoArquivoCliente": "C:\\PROJETO\\Financeiro\\Sistema Financeiro\\Sistema Financeiro\\DataBase\\Clientes.json",
+    "listaCliente": [],
+    "Id": 4,
+    "NomeCompleto": "Carlos Andre Mendonça Nascimento",
+    "Telefone": "(92) 98486-2635"
   }
 ]

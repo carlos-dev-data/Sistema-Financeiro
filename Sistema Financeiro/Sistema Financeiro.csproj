@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao\Cliente.cs" />
+    <Compile Include="Conexao\ContaReceber.cs" />
+    <Compile Include="Conexao\ContaRecebido.cs" />
     <Compile Include="Conexao\Uteis.cs" />
     <Compile Include="Financeiro.cs">
       <SubType>Form</SubType>
@@ -62,6 +64,30 @@
     </Compile>
     <Compile Include="Form_Cadastros\Cadastro de Cliente.Designer.cs">
       <DependentUpon>Cadastro de Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Cadastros\EditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Cadastros\EditarCliente.Designer.cs">
+      <DependentUpon>EditarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ContaReceber\AlterarTitulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ContaReceber\AlterarTitulo.Designer.cs">
+      <DependentUpon>AlterarTitulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ContaReceber\LancarTitulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ContaReceber\LancarTitulo.Designer.cs">
+      <DependentUpon>LancarTitulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ContaReceber\LancarTituloRecebido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ContaReceber\LancarTituloRecebido.Designer.cs">
+      <DependentUpon>LancarTituloRecebido.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Relatorios\Rel_Clientes.cs">
       <SubType>Form</SubType>
@@ -76,6 +102,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Cadastros\Cadastro de Cliente.resx">
       <DependentUpon>Cadastro de Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Cadastros\EditarCliente.resx">
+      <DependentUpon>EditarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ContaReceber\AlterarTitulo.resx">
+      <DependentUpon>AlterarTitulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ContaReceber\LancarTitulo.resx">
+      <DependentUpon>LancarTitulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ContaReceber\LancarTituloRecebido.resx">
+      <DependentUpon>LancarTituloRecebido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Relatorios\Rel_Clientes.resx">
       <DependentUpon>Rel_Clientes.cs</DependentUpon>

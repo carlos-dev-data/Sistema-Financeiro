@@ -1,0 +1,15 @@
+[
+  {
+    "caminhoArquivoContaReceber": "C:\\PROJETO\\Financeiro\\Sistema Financeiro\\Sistema Financeiro\\DataBase\\ContaReceber.json",
+    "IdTitulo": 1,
+    "IdCliente": 1,
+    "NomeCliente": "Carlos Andre Nascimento",
+    "DataEmissao": "2026-03-07T00:00:00-04:00",
+    "DataVencimento": "2026-04-15T15:05:23",
+    "DataPagamento": "2026-03-07T15:07:42.3401112-04:00",
+    "ValorAReceber": 650.00,
+    "ValorRecebido": 650.00,
+    "Diferenca": 0.00,
+    "Status": "Pago"
+  }
+]

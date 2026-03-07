@@ -1,4 +1,7 @@
-﻿using Sistema_Financeiro.Formularios;
+﻿using Sistema_Financeiro.Conexao;
+using Sistema_Financeiro.Form_Cadastros;
+using Sistema_Financeiro.Form_ContaReceber;
+using Sistema_Financeiro.Formularios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,6 +36,32 @@ namespace Sistema_Financeiro
         {
             Form_Relatorios.Rel_Clientes relClientes = new Form_Relatorios.Rel_Clientes();
             relClientes.Show();
+        }
+
+        private void editarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditarCliente editarCliente = new EditarCliente();
+            editarCliente.Show();
+        }
+
+        private void lançarTituloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          LancarTitulo lancarTitulo = new LancarTitulo();
+            lancarTitulo.Show();
+
+
+        }
+
+        private void alterarTituloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AlterarTitulo alterarTitulo = new AlterarTitulo();
+            alterarTitulo.Show();
+        }
+
+        private void receberTituloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LancarTituloRecebido lancarTituloRecebido = new LancarTituloRecebido();
+            lancarTituloRecebido.Show();
         }
     }
 }
