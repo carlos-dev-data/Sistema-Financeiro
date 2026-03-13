@@ -36,3 +36,4 @@ C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Tex
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Text.Json.xml
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Configuracao.Formconfiguracoes.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_Relatorios.TitulosAReceber.resources

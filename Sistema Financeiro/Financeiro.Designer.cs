@@ -43,6 +43,7 @@
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caminhoBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.títulosAReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             // 
             this.clienteToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "Cadastrar Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
@@ -91,7 +92,7 @@
             // 
             this.editarClienteToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editarClienteToolStripMenuItem.Name = "editarClienteToolStripMenuItem";
-            this.editarClienteToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.editarClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editarClienteToolStripMenuItem.Text = "Editar Cliente";
             this.editarClienteToolStripMenuItem.Click += new System.EventHandler(this.editarClienteToolStripMenuItem_Click);
             // 
@@ -99,7 +100,7 @@
             // 
             this.sairToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -123,7 +124,7 @@
             // 
             this.lançarTituloToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lançarTituloToolStripMenuItem.Name = "lançarTituloToolStripMenuItem";
-            this.lançarTituloToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.lançarTituloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lançarTituloToolStripMenuItem.Text = "Lançar Titulo";
             this.lançarTituloToolStripMenuItem.Click += new System.EventHandler(this.lançarTituloToolStripMenuItem_Click);
             // 
@@ -131,7 +132,7 @@
             // 
             this.alterarTituloToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alterarTituloToolStripMenuItem.Name = "alterarTituloToolStripMenuItem";
-            this.alterarTituloToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.alterarTituloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alterarTituloToolStripMenuItem.Text = "Alterar Titulo";
             this.alterarTituloToolStripMenuItem.Click += new System.EventHandler(this.alterarTituloToolStripMenuItem_Click);
             // 
@@ -139,7 +140,7 @@
             // 
             this.receberTituloToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receberTituloToolStripMenuItem.Name = "receberTituloToolStripMenuItem";
-            this.receberTituloToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.receberTituloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.receberTituloToolStripMenuItem.Text = "Receber Titulo";
             this.receberTituloToolStripMenuItem.Click += new System.EventHandler(this.receberTituloToolStripMenuItem_Click);
             // 
@@ -147,7 +148,8 @@
             // 
             this.relatorioToolStripMenuItem.BackColor = System.Drawing.Color.Blue;
             this.relatorioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastroToolStripMenuItem});
+            this.cadastroToolStripMenuItem,
+            this.títulosAReceberToolStripMenuItem});
             this.relatorioToolStripMenuItem.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.relatorioToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.relatorioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("relatorioToolStripMenuItem.Image")));
@@ -163,13 +165,13 @@
             this.clientesToolStripMenuItem});
             this.cadastroToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastroToolStripMenuItem.Text = "Cadastro";
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -190,6 +192,14 @@
             this.caminhoBaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.caminhoBaseToolStripMenuItem.Text = "Caminho Base";
             this.caminhoBaseToolStripMenuItem.Click += new System.EventHandler(this.caminhoBaseToolStripMenuItem_Click);
+            // 
+            // títulosAReceberToolStripMenuItem
+            // 
+            this.títulosAReceberToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.títulosAReceberToolStripMenuItem.Name = "títulosAReceberToolStripMenuItem";
+            this.títulosAReceberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.títulosAReceberToolStripMenuItem.Text = "Títulos";
+            this.títulosAReceberToolStripMenuItem.Click += new System.EventHandler(this.títulosAReceberToolStripMenuItem_Click);
             // 
             // Financeiro
             // 
@@ -228,6 +238,7 @@
         private System.Windows.Forms.ToolStripMenuItem alterarTituloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caminhoBaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem títulosAReceberToolStripMenuItem;
     }
 }
 

@@ -2,6 +2,7 @@
 using Sistema_Financeiro.Configuracao;
 using Sistema_Financeiro.Form_Cadastros;
 using Sistema_Financeiro.Form_ContaReceber;
+using Sistema_Financeiro.Form_Relatorios;
 using Sistema_Financeiro.Formularios;
 using System;
 using System.Collections.Generic;
@@ -81,6 +82,13 @@ namespace Sistema_Financeiro
             Formconfiguracoes formconfiguracoes = new Formconfiguracoes();
             formconfiguracoes.MdiParent = this;
             formconfiguracoes.Show();
+        }
+
+        private void títulosAReceberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TitulosAReceber titulosAReceber = new TitulosAReceber();
+            titulosAReceber.MdiParent = this;
+            titulosAReceber.Show();
         }
     }
 }
