@@ -28,6 +28,14 @@ namespace Sistema_Financeiro.Form_Relatorios
 
         private void TitulosAReceber_Load(object sender, EventArgs e)
         {
+            cmbStatusFinan.Items.Clear();
+            cmbStatusFinan.Items.AddRange(new object[] { "Todos", "Aberto", "Pago", "Pago Parcial", "Vencido" });
+            cmbStatusFinan.SelectedIndex = 0;
+            // Garante que os filtros de data iniciam desmarcados
+            dtpEmissaoFinan.Checked = false;
+            dtpVencimentoIniFinan.Checked = false;
+            dtpVencimentoFinalFinan.Checked = false;
+
             ConfigurarGrid();
             CarregarDados();
         }
@@ -38,10 +46,22 @@ namespace Sistema_Financeiro.Form_Relatorios
             {
                 string cam = new ContaReceber().caminhoArquivoContaReceber;
                 if (File.Exists(cam))
-                    _todos = JsonConvert.DeserializeObject<List<ContaReceber>>(File.ReadAllText(cam))
+                {
+                    var settings = new JsonSerializerSettings
+                    {
+                        DateTimeZoneHandling = DateTimeZoneHandling.Local  // ← corrige o fuso -04:00
+                    };
+
+                    _todos = JsonConvert.DeserializeObject<List<ContaReceber>>(
+                                 File.ReadAllText(cam), settings)
                              ?? new List<ContaReceber>();
+                }
             }
-            catch { _todos = new List<ContaReceber>(); }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERRO ao carregar: {ex.Message}");
+                _todos = new List<ContaReceber>();
+            }
 
             _filtrados = new List<ContaReceber>(_todos);
             PreencherGrid(_filtrados);
@@ -182,8 +202,10 @@ namespace Sistema_Financeiro.Form_Relatorios
             decimal.TryParse(txtValorMinFinan.Text.Replace("R$", "").Trim(), out decimal vMin);
             decimal.TryParse(txtValorMaxFinan.Text.Replace("R$", "").Trim(), out decimal vMax);
 
-            DateTime? dtEmissao = (DateTime?)dtpEmissaoFinan.Value.Date;
-            DateTime? dtVencimento = (DateTime?)dtpVencimentoFinan.Value.Date;
+            // Datas "zeradas" = não filtrar. Só filtra se diferente do valor padrão (DateTime.MinValue)
+            DateTime dtEmissao = dtpEmissaoFinan.Checked ? dtpEmissaoFinan.Value.Date : DateTime.MinValue;
+            DateTime dtVencIni = dtpVencimentoIniFinan.Checked ? dtpVencimentoIniFinan.Value.Date : DateTime.MinValue;
+            DateTime dtVencFinal = dtpVencimentoFinalFinan.Checked ? dtpVencimentoFinalFinan.Value.Date : DateTime.MaxValue;
 
             _filtrados = _todos.Where(t =>
             {
@@ -201,8 +223,9 @@ namespace Sistema_Financeiro.Form_Relatorios
                 if (vMin > 0 && t.ValorAReceber < vMin) return false;
                 if (vMax > 0 && t.ValorAReceber > vMax) return false;
 
-                if (dtEmissao.HasValue && t.DataEmissao.Date != dtEmissao.Value) return false;
-                if (dtVencimento.HasValue && t.DataVencimento.Date != dtVencimento.Value) return false;
+                if (dtEmissao != DateTime.MinValue && t.DataEmissao.Date != dtEmissao) return false;
+                if (dtVencIni != DateTime.MinValue && t.DataVencimento.Date < dtVencIni) return false;
+                if (dtVencFinal != DateTime.MaxValue && t.DataVencimento.Date > dtVencFinal) return false;
 
                 return true;
             }).ToList();
@@ -217,9 +240,19 @@ namespace Sistema_Financeiro.Form_Relatorios
             txtIdTituloFinan.Clear();
             txtValorMinFinan.Clear();
             txtValorMaxFinan.Clear();
-            cmbStatusFinan.SelectedIndex = 0;
+
+            // Só seta index se tiver itens
+            if (cmbStatusFinan.Items.Count > 0)
+                cmbStatusFinan.SelectedIndex = 0;
+            else
+                cmbStatusFinan.SelectedIndex = -1;
+
+            dtpEmissaoFinan.Checked = false;
+            dtpVencimentoIniFinan.Checked = false;
+            dtpVencimentoFinalFinan.Checked = false;
             dtpEmissaoFinan.Value = DateTime.Today;
-            dtpVencimentoFinan.Value = DateTime.Today;
+            dtpVencimentoIniFinan.Value = DateTime.Today;
+            dtpVencimentoFinalFinan.Value = DateTime.Today;
 
             _filtrados = new List<ContaReceber>(_todos);
             PreencherGrid(_filtrados);

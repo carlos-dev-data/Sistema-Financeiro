@@ -37,7 +37,7 @@
             this.cmbStatusFinan = new System.Windows.Forms.ComboBox();
             this.lblValorMinFinan = new System.Windows.Forms.Label();
             this.lblStatusFinan = new System.Windows.Forms.Label();
-            this.dtpVencimentoFinan = new System.Windows.Forms.DateTimePicker();
+            this.dtpVencimentoIniFinan = new System.Windows.Forms.DateTimePicker();
             this.txtValorMaxFinan = new System.Windows.Forms.TextBox();
             this.txtNomeClienteFinan = new System.Windows.Forms.TextBox();
             this.lblValorMaxFinan = new System.Windows.Forms.Label();
@@ -70,6 +70,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.grpTabela = new System.Windows.Forms.GroupBox();
             this.dgvTitulos = new System.Windows.Forms.DataGridView();
+            this.dtpVencimentoFinalFinan = new System.Windows.Forms.DateTimePicker();
             this.pnlHeader.SuspendLayout();
             this.grpFiltros.SuspendLayout();
             this.pnlCardAzul.SuspendLayout();
@@ -103,13 +104,14 @@
             // grpFiltros
             // 
             this.grpFiltros.BackColor = System.Drawing.Color.White;
+            this.grpFiltros.Controls.Add(this.dtpVencimentoFinalFinan);
             this.grpFiltros.Controls.Add(this.btnLimpar);
             this.grpFiltros.Controls.Add(this.btnBuscar);
             this.grpFiltros.Controls.Add(this.txtValorMinFinan);
             this.grpFiltros.Controls.Add(this.cmbStatusFinan);
             this.grpFiltros.Controls.Add(this.lblValorMinFinan);
             this.grpFiltros.Controls.Add(this.lblStatusFinan);
-            this.grpFiltros.Controls.Add(this.dtpVencimentoFinan);
+            this.grpFiltros.Controls.Add(this.dtpVencimentoIniFinan);
             this.grpFiltros.Controls.Add(this.txtValorMaxFinan);
             this.grpFiltros.Controls.Add(this.txtNomeClienteFinan);
             this.grpFiltros.Controls.Add(this.lblValorMaxFinan);
@@ -160,7 +162,7 @@
             // 
             // txtValorMinFinan
             // 
-            this.txtValorMinFinan.Location = new System.Drawing.Point(674, 59);
+            this.txtValorMinFinan.Location = new System.Drawing.Point(743, 59);
             this.txtValorMinFinan.Name = "txtValorMinFinan";
             this.txtValorMinFinan.Size = new System.Drawing.Size(133, 22);
             this.txtValorMinFinan.TabIndex = 17;
@@ -168,7 +170,7 @@
             // cmbStatusFinan
             // 
             this.cmbStatusFinan.FormattingEnabled = true;
-            this.cmbStatusFinan.Location = new System.Drawing.Point(674, 28);
+            this.cmbStatusFinan.Location = new System.Drawing.Point(743, 28);
             this.cmbStatusFinan.Name = "cmbStatusFinan";
             this.cmbStatusFinan.Size = new System.Drawing.Size(164, 24);
             this.cmbStatusFinan.TabIndex = 16;
@@ -177,7 +179,7 @@
             // 
             this.lblValorMinFinan.AutoSize = true;
             this.lblValorMinFinan.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorMinFinan.Location = new System.Drawing.Point(586, 63);
+            this.lblValorMinFinan.Location = new System.Drawing.Point(655, 63);
             this.lblValorMinFinan.Name = "lblValorMinFinan";
             this.lblValorMinFinan.Size = new System.Drawing.Size(54, 14);
             this.lblValorMinFinan.TabIndex = 13;
@@ -187,24 +189,25 @@
             // 
             this.lblStatusFinan.AutoSize = true;
             this.lblStatusFinan.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusFinan.Location = new System.Drawing.Point(586, 33);
+            this.lblStatusFinan.Location = new System.Drawing.Point(655, 33);
             this.lblStatusFinan.Name = "lblStatusFinan";
             this.lblStatusFinan.Size = new System.Drawing.Size(38, 14);
             this.lblStatusFinan.TabIndex = 12;
             this.lblStatusFinan.Text = "Status";
             // 
-            // dtpVencimentoFinan
+            // dtpVencimentoIniFinan
             // 
-            this.dtpVencimentoFinan.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpVencimentoFinan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVencimentoFinan.Location = new System.Drawing.Point(397, 59);
-            this.dtpVencimentoFinan.Name = "dtpVencimentoFinan";
-            this.dtpVencimentoFinan.Size = new System.Drawing.Size(133, 20);
-            this.dtpVencimentoFinan.TabIndex = 11;
+            this.dtpVencimentoIniFinan.Checked = false;
+            this.dtpVencimentoIniFinan.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpVencimentoIniFinan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVencimentoIniFinan.Location = new System.Drawing.Point(397, 59);
+            this.dtpVencimentoIniFinan.Name = "dtpVencimentoIniFinan";
+            this.dtpVencimentoIniFinan.Size = new System.Drawing.Size(133, 20);
+            this.dtpVencimentoIniFinan.TabIndex = 11;
             // 
             // txtValorMaxFinan
             // 
-            this.txtValorMaxFinan.Location = new System.Drawing.Point(397, 87);
+            this.txtValorMaxFinan.Location = new System.Drawing.Point(397, 109);
             this.txtValorMaxFinan.Name = "txtValorMaxFinan";
             this.txtValorMaxFinan.Size = new System.Drawing.Size(133, 22);
             this.txtValorMaxFinan.TabIndex = 10;
@@ -213,14 +216,14 @@
             // 
             this.txtNomeClienteFinan.Location = new System.Drawing.Point(396, 33);
             this.txtNomeClienteFinan.Name = "txtNomeClienteFinan";
-            this.txtNomeClienteFinan.Size = new System.Drawing.Size(133, 22);
+            this.txtNomeClienteFinan.Size = new System.Drawing.Size(253, 22);
             this.txtNomeClienteFinan.TabIndex = 9;
             // 
             // lblValorMaxFinan
             // 
             this.lblValorMaxFinan.AutoSize = true;
             this.lblValorMaxFinan.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorMaxFinan.Location = new System.Drawing.Point(311, 92);
+            this.lblValorMaxFinan.Location = new System.Drawing.Point(311, 114);
             this.lblValorMaxFinan.Name = "lblValorMaxFinan";
             this.lblValorMaxFinan.Size = new System.Drawing.Size(58, 14);
             this.lblValorMaxFinan.TabIndex = 8;
@@ -506,10 +509,21 @@
             this.dgvTitulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTitulos.Location = new System.Drawing.Point(0, 21);
             this.dgvTitulos.Name = "dgvTitulos";
+            this.dgvTitulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTitulos.Size = new System.Drawing.Size(1064, 299);
             this.dgvTitulos.TabIndex = 0;
             this.dgvTitulos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTitulos_CellFormatting);
             this.dgvTitulos.SelectionChanged += new System.EventHandler(this.dgvTitulos_SelectionChanged);
+            // 
+            // dtpVencimentoFinalFinan
+            // 
+            this.dtpVencimentoFinalFinan.Checked = false;
+            this.dtpVencimentoFinalFinan.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpVencimentoFinalFinan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVencimentoFinalFinan.Location = new System.Drawing.Point(397, 83);
+            this.dtpVencimentoFinalFinan.Name = "dtpVencimentoFinalFinan";
+            this.dtpVencimentoFinalFinan.Size = new System.Drawing.Size(133, 20);
+            this.dtpVencimentoFinalFinan.TabIndex = 20;
             // 
             // TitulosAReceber
             // 
@@ -561,7 +575,7 @@
         private System.Windows.Forms.Label lblNomeCliente;
         private System.Windows.Forms.Label lblCodCliente;
         private System.Windows.Forms.DateTimePicker dtpEmissaoFinan;
-        private System.Windows.Forms.DateTimePicker dtpVencimentoFinan;
+        private System.Windows.Forms.DateTimePicker dtpVencimentoIniFinan;
         private System.Windows.Forms.TextBox txtValorMaxFinan;
         private System.Windows.Forms.TextBox txtNomeClienteFinan;
         private System.Windows.Forms.Label lblValorMaxFinan;
@@ -594,5 +608,6 @@
         private System.Windows.Forms.Label lblTotalRecebido;
         private System.Windows.Forms.GroupBox grpTabela;
         private System.Windows.Forms.DataGridView dgvTitulos;
+        private System.Windows.Forms.DateTimePicker dtpVencimentoFinalFinan;
     }
 }
