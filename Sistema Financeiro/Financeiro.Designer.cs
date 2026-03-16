@@ -41,15 +41,15 @@
             this.relatorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.títulosAReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caminhoBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.títulosAReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.RoyalBlue;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
             this.titToolStripMenuItem,
@@ -171,9 +171,17 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // títulosAReceberToolStripMenuItem
+            // 
+            this.títulosAReceberToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.títulosAReceberToolStripMenuItem.Name = "títulosAReceberToolStripMenuItem";
+            this.títulosAReceberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.títulosAReceberToolStripMenuItem.Text = "Títulos";
+            this.títulosAReceberToolStripMenuItem.Click += new System.EventHandler(this.títulosAReceberToolStripMenuItem_Click);
             // 
             // configuraçãoToolStripMenuItem
             // 
@@ -189,17 +197,9 @@
             // 
             this.caminhoBaseToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.caminhoBaseToolStripMenuItem.Name = "caminhoBaseToolStripMenuItem";
-            this.caminhoBaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.caminhoBaseToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.caminhoBaseToolStripMenuItem.Text = "Caminho Base";
             this.caminhoBaseToolStripMenuItem.Click += new System.EventHandler(this.caminhoBaseToolStripMenuItem_Click);
-            // 
-            // títulosAReceberToolStripMenuItem
-            // 
-            this.títulosAReceberToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.títulosAReceberToolStripMenuItem.Name = "títulosAReceberToolStripMenuItem";
-            this.títulosAReceberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.títulosAReceberToolStripMenuItem.Text = "Títulos";
-            this.títulosAReceberToolStripMenuItem.Click += new System.EventHandler(this.títulosAReceberToolStripMenuItem_Click);
             // 
             // Financeiro
             // 

@@ -2,181 +2,107 @@
 using Sistema_Financeiro.Conexao;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sistema_Financeiro.Form_ContaReceber
 {
     public partial class AlterarTitulo : Form
     {
+        private readonly CultureInfo _ptBR = new CultureInfo("pt-BR");
+
         public AlterarTitulo()
         {
             InitializeComponent();
+            Dtp_DataEmissao.Value = DateTime.Today;
+            Dtp_DataVencimento.Value = DateTime.Today;
         }
 
-        private void Txt_IDTitulo_MouseLeave(object sender, EventArgs e)
+        private void AlterarTitulo_Load(object sender, EventArgs e) { }
+
+        // ── Busca título pelo ID ──────────────────────────────────────
+        private void Txt_IDTitulo_MouseLeave(object sender, EventArgs e) => BuscarTitulo();
+
+        private void BuscarTitulo()
         {
-            ContaReceber contaReceber = new ContaReceber();
+            if (string.IsNullOrWhiteSpace(Txt_IDTitulo.Text)) return;
+            if (!int.TryParse(Txt_IDTitulo.Text, out int idBusca)) return;
 
-            if (!string.IsNullOrWhiteSpace(Txt_IDTitulo.Text)) // Verificar se o campo de ID não está vazio
+            var conta = new ContaReceber();
+            if (!File.Exists(conta.caminhoArquivoContaReceber)) return;
+
+            var lista = JsonConvert.DeserializeObject<List<ContaReceber>>(
+                            File.ReadAllText(conta.caminhoArquivoContaReceber));
+
+            var titulo = lista?.FirstOrDefault(t => t.IdTitulo == idBusca);
+
+            if (titulo != null)
             {
-                if (int.TryParse(Txt_IDTitulo.Text, out int idBusca)) // Tentar converter o texto para um número inteiro
-                {
+                Txt_IdCliente.Text = titulo.IdCliente.ToString();
+                Lbl_Cliente.Text = titulo.NomeCliente;
+                Lbl_Cliente.ForeColor = Color.FromArgb(30, 41, 59);
+                Txt_ValorAReceber.Text = titulo.ValorAReceber.ToString("N2", _ptBR);
+                Dtp_DataEmissao.Value = titulo.DataEmissao;
+                Dtp_DataVencimento.Value = titulo.DataVencimento;
 
-                    if (System.IO.File.Exists(contaReceber.caminhoArquivoContaReceber)) // Verificar se o arquivo existe antes de tentar ler
-                    {
-                        string jsonLido = System.IO.File.ReadAllText(contaReceber.caminhoArquivoContaReceber); // Ler o conteúdo do arquivo JSON
-                        var listaParaBusca = JsonConvert.DeserializeObject<List<ContaReceber>>(jsonLido); // Corrigido: usar JsonConvert para desserializar a partir de string
-
-
-                        var tituloEncontrado = listaParaBusca.FirstOrDefault(a => a.IdTitulo == idBusca); // Procurar o aluno com o ID correspondente usando LINQ
-
-                        if (tituloEncontrado != null) // Verificar se um aluno foi encontrado e, em caso afirmativo, preencher os campos de nome e CPF com as informações do aluno encontrado
-                        {
-                            Txt_IdCliente.Text = tituloEncontrado.IdCliente.ToString();
-                            Lbl_Cliente.Text = tituloEncontrado.NomeCliente;
-                            Txt_ValorAReceber.Text = tituloEncontrado.ValorAReceber.ToString("F2");
-                            Dtp_DataEmissao.Value = tituloEncontrado.DataEmissao;
-                            Dtp_DataVencimento.Value = tituloEncontrado.DataVencimento;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Titulo não encontrado no arquivo.");
-                        }
-                    }
-                }
+                // Feedback visual no card ID
+                pnlIDTitulo.BackColor = Color.FromArgb(240, 253, 244); // verde muito claro
+                lblIDTitulo.ForeColor = Color.FromArgb(21, 128, 61);
+                Txt_IDTitulo.ForeColor = Color.FromArgb(21, 128, 61);
+            }
+            else
+            {
+                Mostrar("Título não encontrado.", "Atenção", MessageBoxIcon.Warning);
+                LimparCampos();
             }
         }
 
-        private void Btn_Editar_Click(object sender, EventArgs e)
-        {
-            // Validar se os campos estão preenchidos
-            if (string.IsNullOrWhiteSpace(Txt_IDTitulo.Text) ||
-                string.IsNullOrWhiteSpace(Txt_IdCliente.Text) ||
-                string.IsNullOrWhiteSpace(Lbl_Cliente.Text) ||
-                string.IsNullOrWhiteSpace(Txt_ValorAReceber.Text) ||
-                string.IsNullOrWhiteSpace(Dtp_DataEmissao.Text) ||
-                string.IsNullOrWhiteSpace(Dtp_DataVencimento.Text))
-            {
-                MessageBox.Show("Preencha todos os campos antes de editar.",
-                                "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            ContaReceber receber = new ContaReceber();
-
-            if (!int.TryParse(Txt_IDTitulo.Text, out int idEditar))
-            {
-                MessageBox.Show("ID inválido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!System.IO.File.Exists(receber.caminhoArquivoContaReceber))
-            {
-                MessageBox.Show("Arquivo de titulos não encontrado.",
-                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Ler a lista existente
-            string jsonLido = System.IO.File.ReadAllText(receber.caminhoArquivoContaReceber);
-            var lista = JsonConvert.DeserializeObject<List<ContaReceber>>(jsonLido);
-
-            // Buscar o título pelo ID
-            var TituloParaEditar = lista.FirstOrDefault(c => c.IdTitulo == idEditar);
-
-            if (TituloParaEditar == null)
-            {
-                MessageBox.Show("Titulo não encontrado.",
-                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // ✅ Atualizar os dados do título encontrado na lista
-            TituloParaEditar.IdCliente = int.Parse(Txt_IdCliente.Text);
-            TituloParaEditar.NomeCliente = Lbl_Cliente.Text;
-            TituloParaEditar.ValorAReceber = decimal.Parse(Txt_ValorAReceber.Text,
-                System.Globalization.NumberStyles.Currency,
-                new System.Globalization.CultureInfo("pt-BR"));
-            TituloParaEditar.DataEmissao = Dtp_DataEmissao.Value;
-            TituloParaEditar.DataVencimento = Dtp_DataVencimento.Value;
-
-            // Salvar a lista atualizada no arquivo
-            string jsonAtualizado = JsonConvert.SerializeObject(lista, Formatting.Indented);
-            System.IO.File.WriteAllText(receber.caminhoArquivoContaReceber, jsonAtualizado);
-
-            MessageBox.Show("Titulo editado com sucesso!",
-                            "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Limpar os campos após editar
-            Txt_IDTitulo.Clear();
-            Txt_IdCliente.Clear();
-            Lbl_Cliente.Text = string.Empty;
-            Txt_ValorAReceber.Clear();
-            Dtp_DataEmissao.Value = DateTime.Now;
-            Dtp_DataVencimento.Value = DateTime.Now;
-        }
-
+        // ── Busca cliente pelo código ─────────────────────────────────
         private void Txt_IdCliente_MouseLeave(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(Txt_IdCliente.Text)) return;
+            if (!int.TryParse(Txt_IdCliente.Text, out int id)) return;
 
-            Cliente cliente = new Cliente();
+            var cliente = new Cliente();
+            if (!File.Exists(cliente.caminhoArquivoCliente)) return;
 
-            if (!string.IsNullOrWhiteSpace(Txt_IdCliente.Text)) // Verificar se o campo de ID não está vazio
+            var lista = JsonConvert.DeserializeObject<List<Cliente>>(
+                            File.ReadAllText(cliente.caminhoArquivoCliente));
+
+            var encontrado = lista?.FirstOrDefault(c => c.Id == id);
+
+            if (encontrado != null)
             {
-                if (int.TryParse(Txt_IdCliente.Text, out int idBusca)) // Tentar converter o texto para um número inteiro
-                {
-
-                    if (System.IO.File.Exists(cliente.caminhoArquivoCliente)) // Verificar se o arquivo existe antes de tentar ler
-                    {
-                        string jsonLido = System.IO.File.ReadAllText(cliente.caminhoArquivoCliente); // Ler o conteúdo do arquivo JSON
-                        var listaParaBusca = JsonConvert.DeserializeObject<List<Cliente>>(jsonLido); // Corrigido: usar JsonConvert para desserializar a partir de string
-
-
-                        var clienteEncontrado = listaParaBusca.FirstOrDefault(a => a.Id == idBusca); // Procurar o aluno com o ID correspondente usando LINQ
-
-                        if (clienteEncontrado != null) // Verificar se um aluno foi encontrado e, em caso afirmativo, preencher os campos de nome e CPF com as informações do aluno encontrado
-                        {
-
-                            Lbl_Cliente.Text = clienteEncontrado.NomeCompleto;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Cliente não encontrado no arquivo.");
-                        }
-                    }
-                }
+                Lbl_Cliente.Text = encontrado.NomeCompleto;
+                Lbl_Cliente.ForeColor = Color.FromArgb(30, 41, 59);
+            }
+            else
+            {
+                Lbl_Cliente.Text = "Cliente não encontrado";
+                Lbl_Cliente.ForeColor = Color.FromArgb(185, 28, 28);
             }
         }
 
+        // ── Máscara monetária ─────────────────────────────────────────
         private void Txt_ValorAReceber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permite apenas dígitos e backspace
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
                 e.Handled = true;
-            }
         }
 
         private void Txt_ValorAReceber_TextChanged(object sender, EventArgs e)
         {
-            // Evita loop recursivo
             Txt_ValorAReceber.TextChanged -= Txt_ValorAReceber_TextChanged;
 
-            // Remove tudo que não for dígito
-            string apenasDigitos = new string(Txt_ValorAReceber.Text.Where(char.IsDigit).ToArray());
-
-            if (apenasDigitos.Length > 0)
+            string digits = new string(Txt_ValorAReceber.Text.Where(char.IsDigit).ToArray());
+            if (digits.Length > 0)
             {
-                // Trata como centavos
-                decimal valor = decimal.Parse(apenasDigitos) / 100m;
-                Txt_ValorAReceber.Text = valor.ToString("N2", new System.Globalization.CultureInfo("pt-BR"));
-                Txt_ValorAReceber.SelectionStart = Txt_ValorAReceber.Text.Length; // cursor no final
+                decimal valor = decimal.Parse(digits) / 100m;
+                Txt_ValorAReceber.Text = valor.ToString("N2", _ptBR);
+                Txt_ValorAReceber.SelectionStart = Txt_ValorAReceber.Text.Length;
             }
             else
             {
@@ -186,9 +112,98 @@ namespace Sistema_Financeiro.Form_ContaReceber
             Txt_ValorAReceber.TextChanged += Txt_ValorAReceber_TextChanged;
         }
 
-        private void AlterarTitulo_Load(object sender, EventArgs e)
+        // ── Salvar alteração ──────────────────────────────────────────
+        private void Btn_Editar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(Txt_IDTitulo.Text) ||
+                string.IsNullOrWhiteSpace(Txt_IdCliente.Text) ||
+                string.IsNullOrWhiteSpace(Lbl_Cliente.Text) || Lbl_Cliente.Text == "—" ||
+                string.IsNullOrWhiteSpace(Txt_ValorAReceber.Text))
+            {
+                Mostrar("Preencha todos os campos antes de salvar.", "Atenção",
+                    MessageBoxIcon.Warning);
+                return;
+            }
 
+            if (!int.TryParse(Txt_IDTitulo.Text, out int idEditar))
+            {
+                Mostrar("ID do título inválido.", "Erro", MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!decimal.TryParse(Txt_ValorAReceber.Text,
+                    NumberStyles.Currency, _ptBR, out decimal valor) || valor <= 0)
+            {
+                Mostrar("Valor inválido. Digite um valor maior que zero.", "Erro",
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Dtp_DataVencimento.Value.Date < Dtp_DataEmissao.Value.Date)
+            {
+                Mostrar("A data de vencimento não pode ser anterior à emissão.", "Atenção",
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            var receber = new ContaReceber();
+            if (!File.Exists(receber.caminhoArquivoContaReceber))
+            {
+                Mostrar("Arquivo de títulos não encontrado.", "Erro", MessageBoxIcon.Error);
+                return;
+            }
+
+            var lista = JsonConvert.DeserializeObject<List<ContaReceber>>(
+                            File.ReadAllText(receber.caminhoArquivoContaReceber));
+
+            var titulo = lista?.FirstOrDefault(t => t.IdTitulo == idEditar);
+            if (titulo == null)
+            {
+                Mostrar("Título não encontrado.", "Erro", MessageBoxIcon.Error);
+                return;
+            }
+
+            titulo.IdCliente = int.Parse(Txt_IdCliente.Text);
+            titulo.NomeCliente = Lbl_Cliente.Text;
+            titulo.ValorAReceber = valor;
+            titulo.DataEmissao = Dtp_DataEmissao.Value.Date;
+            titulo.DataVencimento = Dtp_DataVencimento.Value.Date;
+
+            File.WriteAllText(receber.caminhoArquivoContaReceber,
+                JsonConvert.SerializeObject(lista, Formatting.Indented));
+
+            Mostrar(
+                $"Título #{idEditar} atualizado com sucesso!\n\n" +
+                $"Cliente:     {titulo.NomeCliente}\n" +
+                $"Valor:       {titulo.ValorAReceber:C2}\n" +
+                $"Vencimento:  {titulo.DataVencimento:dd/MM/yyyy}",
+                "Alteração Salva", MessageBoxIcon.Information);
+
+            LimparCampos();
         }
+
+        // ── Limpar ────────────────────────────────────────────────────
+        private void Btn_Cancelar_Click(object sender, EventArgs e) => LimparCampos();
+
+        private void LimparCampos()
+        {
+            Txt_IDTitulo.Clear();
+            Txt_IdCliente.Clear();
+            Txt_ValorAReceber.Clear();
+            Lbl_Cliente.Text = "—";
+            Lbl_Cliente.ForeColor = Color.FromArgb(30, 41, 59);
+            Dtp_DataEmissao.Value = DateTime.Today;
+            Dtp_DataVencimento.Value = DateTime.Today;
+
+            // Reseta visual do card ID
+            pnlIDTitulo.BackColor = Color.FromArgb(255, 251, 235);
+            lblIDTitulo.ForeColor = Color.FromArgb(146, 64, 14);
+            Txt_IDTitulo.ForeColor = Color.FromArgb(146, 64, 14);
+
+            Txt_IDTitulo.Focus();
+        }
+
+        private void Mostrar(string msg, string titulo, MessageBoxIcon icone) =>
+            MessageBox.Show(msg, titulo, MessageBoxButtons.OK, icone);
     }
 }
