@@ -31,6 +31,7 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblHeaderTitulo = new System.Windows.Forms.Label();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
+            this.dtpVencimentoFinalFinan = new System.Windows.Forms.DateTimePicker();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtValorMinFinan = new System.Windows.Forms.TextBox();
@@ -70,7 +71,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.grpTabela = new System.Windows.Forms.GroupBox();
             this.dgvTitulos = new System.Windows.Forms.DataGridView();
-            this.dtpVencimentoFinalFinan = new System.Windows.Forms.DateTimePicker();
             this.pnlHeader.SuspendLayout();
             this.grpFiltros.SuspendLayout();
             this.pnlCardAzul.SuspendLayout();
@@ -133,6 +133,16 @@
             this.grpFiltros.TabIndex = 1;
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros";
+            // 
+            // dtpVencimentoFinalFinan
+            // 
+            this.dtpVencimentoFinalFinan.Checked = false;
+            this.dtpVencimentoFinalFinan.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpVencimentoFinalFinan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVencimentoFinalFinan.Location = new System.Drawing.Point(397, 83);
+            this.dtpVencimentoFinalFinan.Name = "dtpVencimentoFinalFinan";
+            this.dtpVencimentoFinalFinan.Size = new System.Drawing.Size(133, 20);
+            this.dtpVencimentoFinalFinan.TabIndex = 20;
             // 
             // btnLimpar
             // 
@@ -515,16 +525,6 @@
             this.dgvTitulos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTitulos_CellFormatting);
             this.dgvTitulos.SelectionChanged += new System.EventHandler(this.dgvTitulos_SelectionChanged);
             // 
-            // dtpVencimentoFinalFinan
-            // 
-            this.dtpVencimentoFinalFinan.Checked = false;
-            this.dtpVencimentoFinalFinan.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpVencimentoFinalFinan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVencimentoFinalFinan.Location = new System.Drawing.Point(397, 83);
-            this.dtpVencimentoFinalFinan.Name = "dtpVencimentoFinalFinan";
-            this.dtpVencimentoFinalFinan.Size = new System.Drawing.Size(133, 20);
-            this.dtpVencimentoFinalFinan.TabIndex = 20;
-            // 
             // TitulosAReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -542,6 +542,7 @@
             this.Controls.Add(this.grpFiltros);
             this.Controls.Add(this.pnlHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "TitulosAReceber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TitulosAReceber";

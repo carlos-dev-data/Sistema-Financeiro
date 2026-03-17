@@ -102,6 +102,12 @@
     <Compile Include="Form_Cadastros\Cadastro de Cliente.Designer.cs">
       <DependentUpon>Cadastro de Cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Cadastros\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Cadastros\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Cadastros\EditarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Cadastros\Cadastro de Cliente.resx">
       <DependentUpon>Cadastro de Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Cadastros\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Cadastros\EditarCliente.resx">
       <DependentUpon>EditarCliente.cs</DependentUpon>

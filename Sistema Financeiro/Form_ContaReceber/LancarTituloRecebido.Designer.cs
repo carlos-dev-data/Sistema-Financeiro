@@ -2,401 +2,638 @@
 {
     partial class LancarTituloRecebido
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Txt_Vencimento = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Txt_Status = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Txt_Receber = new System.Windows.Forms.TextBox();
-            this.Txt_Emissao = new System.Windows.Forms.TextBox();
-            this.Txt_Cliente = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Txt_DataUltPag = new System.Windows.Forms.TextBox();
-            this.Txt_Diferenca = new System.Windows.Forms.TextBox();
-            this.Txt_Recebido = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Btn_Registrar = new System.Windows.Forms.Button();
-            this.Dtp_Pagamento = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.Txt_APagar = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblSubtitulo = new System.Windows.Forms.Label();
+            this.pnlBody = new System.Windows.Forms.Panel();
+            this.pnlSecTitle1 = new System.Windows.Forms.Label();
+            this.pnlBusca = new System.Windows.Forms.Panel();
+            this.lblIdTitulo = new System.Windows.Forms.Label();
+            this.lblIdHint = new System.Windows.Forms.Label();
             this.Txt_IdTitulo = new System.Windows.Forms.TextBox();
             this.Btn_Buscar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.pnlSecTitle2 = new System.Windows.Forms.Label();
+            this.pnlCliente = new System.Windows.Forms.Panel();
+            this.lblClienteHint = new System.Windows.Forms.Label();
+            this.Txt_Cliente = new System.Windows.Forms.TextBox();
+            this.pnlDadosRow = new System.Windows.Forms.Panel();
+            this.pnlEmissao = new System.Windows.Forms.Panel();
+            this.lblEmissaoHint = new System.Windows.Forms.Label();
+            this.Txt_Emissao = new System.Windows.Forms.TextBox();
+            this.pnlVencimento = new System.Windows.Forms.Panel();
+            this.lblVencHint = new System.Windows.Forms.Label();
+            this.Txt_Vencimento = new System.Windows.Forms.TextBox();
+            this.pnlStatus = new System.Windows.Forms.Panel();
+            this.lblStatusHint = new System.Windows.Forms.Label();
+            this.Txt_Status = new System.Windows.Forms.TextBox();
+            this.pnlSecTitle3 = new System.Windows.Forms.Label();
+            this.pnlFinRow = new System.Windows.Forms.Panel();
+            this.pnlAReceber = new System.Windows.Forms.Panel();
+            this.lblAReceberHint = new System.Windows.Forms.Label();
+            this.Txt_Receber = new System.Windows.Forms.TextBox();
+            this.pnlRecebido = new System.Windows.Forms.Panel();
+            this.lblRecebidoHint = new System.Windows.Forms.Label();
+            this.Txt_Recebido = new System.Windows.Forms.TextBox();
+            this.pnlSaldo = new System.Windows.Forms.Panel();
+            this.lblSaldoHint = new System.Windows.Forms.Label();
+            this.Txt_Diferenca = new System.Windows.Forms.TextBox();
+            this.pnlUltPag = new System.Windows.Forms.Panel();
+            this.lblUltPagHint = new System.Windows.Forms.Label();
+            this.Txt_DataUltPag = new System.Windows.Forms.TextBox();
+            this.pnlPagValor = new System.Windows.Forms.Panel();
+            this.lblPagValor = new System.Windows.Forms.Label();
+            this.lblPagValorHint = new System.Windows.Forms.Label();
+            this.Txt_APagar = new System.Windows.Forms.TextBox();
+            this.pnlPagData = new System.Windows.Forms.Panel();
+            this.lblPagData = new System.Windows.Forms.Label();
+            this.lblPagDataHint = new System.Windows.Forms.Label();
+            this.Dtp_Pagamento = new System.Windows.Forms.DateTimePicker();
+            this.pnlFooter = new System.Windows.Forms.Panel();
+            this.Btn_Limpar = new System.Windows.Forms.Button();
+            this.Btn_Registrar = new System.Windows.Forms.Button();
+            this.pnlAccent = new System.Windows.Forms.Panel();
+            this.pnlSep = new System.Windows.Forms.Panel();
+
+            this.pnlHeader.SuspendLayout();
+            this.pnlBody.SuspendLayout();
+            this.pnlBusca.SuspendLayout();
+            this.pnlCliente.SuspendLayout();
+            this.pnlDadosRow.SuspendLayout();
+            this.pnlEmissao.SuspendLayout();
+            this.pnlVencimento.SuspendLayout();
+            this.pnlStatus.SuspendLayout();
+            this.pnlFinRow.SuspendLayout();
+            this.pnlAReceber.SuspendLayout();
+            this.pnlRecebido.SuspendLayout();
+            this.pnlSaldo.SuspendLayout();
+            this.pnlUltPag.SuspendLayout();
+            this.pnlPagValor.SuspendLayout();
+            this.pnlPagData.SuspendLayout();
+            this.pnlFooter.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.groupBox1.Controls.Add(this.Txt_Vencimento);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.Txt_Status);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.Txt_Receber);
-            this.groupBox1.Controls.Add(this.Txt_Emissao);
-            this.groupBox1.Controls.Add(this.Txt_Cliente);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(12, 56);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(384, 125);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dados do Titulo";
-            // 
-            // Txt_Vencimento
-            // 
-            this.Txt_Vencimento.Enabled = false;
-            this.Txt_Vencimento.Location = new System.Drawing.Point(243, 62);
-            this.Txt_Vencimento.Name = "Txt_Vencimento";
-            this.Txt_Vencimento.Size = new System.Drawing.Size(97, 26);
-            this.Txt_Vencimento.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(192, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 16);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Venci";
-            // 
-            // Txt_Status
-            // 
-            this.Txt_Status.Enabled = false;
-            this.Txt_Status.Location = new System.Drawing.Point(243, 92);
-            this.Txt_Status.Name = "Txt_Status";
-            this.Txt_Status.Size = new System.Drawing.Size(97, 26);
-            this.Txt_Status.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(192, 93);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 16);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Status";
-            // 
-            // Txt_Receber
-            // 
-            this.Txt_Receber.Enabled = false;
-            this.Txt_Receber.Location = new System.Drawing.Point(89, 90);
-            this.Txt_Receber.Name = "Txt_Receber";
-            this.Txt_Receber.Size = new System.Drawing.Size(97, 26);
-            this.Txt_Receber.TabIndex = 9;
-            // 
-            // Txt_Emissao
-            // 
-            this.Txt_Emissao.Enabled = false;
-            this.Txt_Emissao.Location = new System.Drawing.Point(89, 62);
-            this.Txt_Emissao.Name = "Txt_Emissao";
-            this.Txt_Emissao.Size = new System.Drawing.Size(97, 26);
-            this.Txt_Emissao.TabIndex = 6;
-            // 
-            // Txt_Cliente
-            // 
-            this.Txt_Cliente.Enabled = false;
-            this.Txt_Cliente.Location = new System.Drawing.Point(89, 28);
-            this.Txt_Cliente.Name = "Txt_Cliente";
-            this.Txt_Cliente.Size = new System.Drawing.Size(289, 26);
-            this.Txt_Cliente.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "A Receber";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 16);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Emissão";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 16);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Cliente";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.LightSlateGray;
-            this.groupBox2.Controls.Add(this.Txt_DataUltPag);
-            this.groupBox2.Controls.Add(this.Txt_Diferenca);
-            this.groupBox2.Controls.Add(this.Txt_Recebido);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(12, 187);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(384, 125);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Situação Financeira";
-            // 
-            // Txt_DataUltPag
-            // 
-            this.Txt_DataUltPag.Enabled = false;
-            this.Txt_DataUltPag.Location = new System.Drawing.Point(106, 88);
-            this.Txt_DataUltPag.Name = "Txt_DataUltPag";
-            this.Txt_DataUltPag.Size = new System.Drawing.Size(103, 22);
-            this.Txt_DataUltPag.TabIndex = 18;
-            // 
-            // Txt_Diferenca
-            // 
-            this.Txt_Diferenca.Enabled = false;
-            this.Txt_Diferenca.Location = new System.Drawing.Point(106, 54);
-            this.Txt_Diferenca.Name = "Txt_Diferenca";
-            this.Txt_Diferenca.Size = new System.Drawing.Size(125, 22);
-            this.Txt_Diferenca.TabIndex = 17;
-            // 
-            // Txt_Recebido
-            // 
-            this.Txt_Recebido.Enabled = false;
-            this.Txt_Recebido.Location = new System.Drawing.Point(106, 21);
-            this.Txt_Recebido.Name = "Txt_Recebido";
-            this.Txt_Recebido.Size = new System.Drawing.Size(125, 22);
-            this.Txt_Recebido.TabIndex = 14;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 90);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 16);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Data Pag";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 54);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 16);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Diferença";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 16);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Valor Recebido";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.LightSlateGray;
-            this.groupBox3.Controls.Add(this.Btn_Registrar);
-            this.groupBox3.Controls.Add(this.Dtp_Pagamento);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.Txt_APagar);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(12, 318);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(384, 125);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Registrar Pagamento";
-            // 
-            // Btn_Registrar
-            // 
-            this.Btn_Registrar.BackColor = System.Drawing.Color.Yellow;
-            this.Btn_Registrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Registrar.ForeColor = System.Drawing.Color.Black;
-            this.Btn_Registrar.Location = new System.Drawing.Point(271, 80);
-            this.Btn_Registrar.Name = "Btn_Registrar";
-            this.Btn_Registrar.Size = new System.Drawing.Size(107, 38);
-            this.Btn_Registrar.TabIndex = 6;
-            this.Btn_Registrar.Text = "Registrar";
-            this.Btn_Registrar.UseVisualStyleBackColor = false;
-            this.Btn_Registrar.Click += new System.EventHandler(this.Btn_Registrar_Click);
-            // 
-            // Dtp_Pagamento
-            // 
-            this.Dtp_Pagamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Dtp_Pagamento.Location = new System.Drawing.Point(76, 78);
-            this.Dtp_Pagamento.Name = "Dtp_Pagamento";
-            this.Dtp_Pagamento.Size = new System.Drawing.Size(103, 22);
-            this.Dtp_Pagamento.TabIndex = 21;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(11, 80);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 16);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Data Pag";
-            // 
-            // Txt_APagar
-            // 
-            this.Txt_APagar.Location = new System.Drawing.Point(76, 37);
-            this.Txt_APagar.Name = "Txt_APagar";
-            this.Txt_APagar.Size = new System.Drawing.Size(103, 22);
-            this.Txt_APagar.TabIndex = 19;
-            this.Txt_APagar.TextChanged += new System.EventHandler(this.Txt_APagar_TextChanged);
-            this.Txt_APagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_APagar_KeyPress);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(11, 42);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 16);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "A Pagar";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Cód.Titulo";
-            // 
-            // Txt_IdTitulo
-            // 
-            this.Txt_IdTitulo.Location = new System.Drawing.Point(88, 19);
+
+            // ── Cores e fontes ───────────────────────────────────────
+            System.Drawing.Color corFundo = System.Drawing.Color.FromArgb(248, 249, 252);
+            System.Drawing.Color corHeader = System.Drawing.Color.FromArgb(15, 23, 42);
+            System.Drawing.Color corAccent = System.Drawing.Color.FromArgb(22, 163, 74);
+            System.Drawing.Color corCard = System.Drawing.Color.White;
+            System.Drawing.Color corBorda = System.Drawing.Color.FromArgb(226, 232, 240);
+            System.Drawing.Color corTexto = System.Drawing.Color.FromArgb(30, 41, 59);
+            System.Drawing.Color corHint = System.Drawing.Color.FromArgb(148, 163, 184);
+            System.Drawing.Color corHintFraco = System.Drawing.Color.FromArgb(200, 210, 230);
+            System.Drawing.Color corVerde = System.Drawing.Color.FromArgb(22, 101, 52);
+            System.Drawing.Color corVermelho = System.Drawing.Color.FromArgb(185, 28, 28);
+            System.Drawing.Color corAzulClaro = System.Drawing.Color.FromArgb(240, 242, 255);
+            System.Drawing.Color corAmbar50 = System.Drawing.Color.FromArgb(255, 251, 235);
+            System.Drawing.Color corAmbarText = System.Drawing.Color.FromArgb(146, 64, 14);
+            System.Drawing.Color corVerdePag = System.Drawing.Color.FromArgb(240, 253, 244);
+            System.Drawing.Color corIndigo = System.Drawing.Color.FromArgb(99, 102, 241);
+            System.Drawing.Font fonteLabel = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            System.Drawing.Font fonteHint = new System.Drawing.Font("Segoe UI", 7.5F);
+            System.Drawing.Font fonteInput = new System.Drawing.Font("Segoe UI", 10F);
+            System.Drawing.Font fonteBold = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            System.Drawing.Font fonteMoney = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            System.Drawing.Font fonteSecao = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Bold);
+
+            // ── pnlAccent ────────────────────────────────────────────
+            this.pnlAccent.BackColor = corAccent;
+            this.pnlAccent.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlAccent.Width = 5;
+            this.pnlAccent.Name = "pnlAccent";
+
+            // ── pnlHeader ────────────────────────────────────────────
+            this.pnlHeader.BackColor = corHeader;
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Height = 72;
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Controls.Add(this.lblSubtitulo);
+            this.pnlHeader.Controls.Add(this.lblTitulo);
+
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(24, 11);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Text = "Receber Título";
+
+            this.lblSubtitulo.AutoSize = true;
+            this.lblSubtitulo.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.lblSubtitulo.ForeColor = System.Drawing.Color.FromArgb(148, 163, 184);
+            this.lblSubtitulo.Location = new System.Drawing.Point(26, 46);
+            this.lblSubtitulo.Name = "lblSubtitulo";
+            this.lblSubtitulo.Text = "Contas a Receber  •  Registrar Pagamento";
+
+            // ── pnlBody ──────────────────────────────────────────────
+            this.pnlBody.BackColor = corFundo;
+            this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBody.AutoScroll = true;
+            this.pnlBody.Padding = new System.Windows.Forms.Padding(20, 12, 20, 0);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Controls.Add(this.pnlPagData);
+            this.pnlBody.Controls.Add(this.pnlPagValor);
+            this.pnlBody.Controls.Add(this.pnlUltPag);
+            this.pnlBody.Controls.Add(this.pnlFinRow);
+            this.pnlBody.Controls.Add(this.pnlSecTitle3);
+            this.pnlBody.Controls.Add(this.pnlDadosRow);
+            this.pnlBody.Controls.Add(this.pnlCliente);
+            this.pnlBody.Controls.Add(this.pnlSecTitle2);
+            this.pnlBody.Controls.Add(this.pnlBusca);
+            this.pnlBody.Controls.Add(this.pnlSecTitle1);
+
+            // ── Seção 1 label ─────────────────────────────────────────
+            this.pnlSecTitle1.AutoSize = true;
+            this.pnlSecTitle1.Font = fonteSecao;
+            this.pnlSecTitle1.ForeColor = corHint;
+            this.pnlSecTitle1.Location = new System.Drawing.Point(20, 12);
+            this.pnlSecTitle1.Name = "pnlSecTitle1";
+            this.pnlSecTitle1.Text = "BUSCAR TÍTULO";
+
+            // ── pnlBusca ──────────────────────────────────────────────
+            this.pnlBusca.BackColor = corAmbar50;
+            this.pnlBusca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlBusca.Location = new System.Drawing.Point(20, 28);
+            this.pnlBusca.Size = new System.Drawing.Size(375, 50);
+            this.pnlBusca.Name = "pnlBusca";
+            this.pnlBusca.Controls.Add(this.Btn_Buscar);
+            this.pnlBusca.Controls.Add(this.Txt_IdTitulo);
+            this.pnlBusca.Controls.Add(this.lblIdHint);
+            this.pnlBusca.Controls.Add(this.lblIdTitulo);
+
+            this.lblIdTitulo.AutoSize = true;
+            this.lblIdTitulo.Font = fonteLabel;
+            this.lblIdTitulo.ForeColor = corAmbarText;
+            this.lblIdTitulo.Location = new System.Drawing.Point(12, 8);
+            this.lblIdTitulo.Name = "lblIdTitulo";
+            this.lblIdTitulo.Text = "ID DO TÍTULO";
+
+            this.lblIdHint.AutoSize = true;
+            this.lblIdHint.Font = fonteHint;
+            this.lblIdHint.ForeColor = System.Drawing.Color.FromArgb(217, 119, 6);
+            this.lblIdHint.Location = new System.Drawing.Point(102, 10);
+            this.lblIdHint.Name = "lblIdHint";
+            this.lblIdHint.Text = "informe o código";
+
+            this.Txt_IdTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txt_IdTitulo.Font = fonteInput;
+            this.Txt_IdTitulo.ForeColor = corAmbarText;
+            this.Txt_IdTitulo.BackColor = corAmbar50;
+            this.Txt_IdTitulo.Location = new System.Drawing.Point(12, 27);
+            this.Txt_IdTitulo.Size = new System.Drawing.Size(240, 20);
+            this.Txt_IdTitulo.TabIndex = 0;
             this.Txt_IdTitulo.Name = "Txt_IdTitulo";
-            this.Txt_IdTitulo.Size = new System.Drawing.Size(89, 20);
-            this.Txt_IdTitulo.TabIndex = 4;
-            // 
-            // Btn_Buscar
-            // 
-            this.Btn_Buscar.BackColor = System.Drawing.Color.Yellow;
-            this.Btn_Buscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Buscar.Location = new System.Drawing.Point(289, 12);
+
+            this.Btn_Buscar.BackColor = System.Drawing.Color.FromArgb(245, 158, 11);
+            this.Btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Buscar.FlatAppearance.BorderSize = 0;
+            this.Btn_Buscar.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
+            this.Btn_Buscar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Buscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Buscar.Location = new System.Drawing.Point(288, 10);
+            this.Btn_Buscar.Size = new System.Drawing.Size(80, 28);
+            this.Btn_Buscar.TabIndex = 1;
             this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(107, 38);
-            this.Btn_Buscar.TabIndex = 5;
             this.Btn_Buscar.Text = "Buscar";
             this.Btn_Buscar.UseVisualStyleBackColor = false;
             this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
-            // 
-            // LancarTituloRecebido
-            // 
+
+            // ── Seção 2 label ─────────────────────────────────────────
+            this.pnlSecTitle2.AutoSize = true;
+            this.pnlSecTitle2.Font = fonteSecao;
+            this.pnlSecTitle2.ForeColor = corHint;
+            this.pnlSecTitle2.Location = new System.Drawing.Point(20, 88);
+            this.pnlSecTitle2.Name = "pnlSecTitle2";
+            this.pnlSecTitle2.Text = "DADOS DO TÍTULO";
+
+            // ── pnlCliente ────────────────────────────────────────────
+            this.pnlCliente.BackColor = corAzulClaro;
+            this.pnlCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCliente.Location = new System.Drawing.Point(20, 104);
+            this.pnlCliente.Size = new System.Drawing.Size(375, 46);
+            this.pnlCliente.Name = "pnlCliente";
+            this.pnlCliente.Controls.Add(this.Txt_Cliente);
+            this.pnlCliente.Controls.Add(this.lblClienteHint);
+
+            this.lblClienteHint.AutoSize = true;
+            this.lblClienteHint.Font = fonteLabel;
+            this.lblClienteHint.ForeColor = corIndigo;
+            this.lblClienteHint.Location = new System.Drawing.Point(12, 7);
+            this.lblClienteHint.Name = "lblClienteHint";
+            this.lblClienteHint.Text = "CLIENTE";
+
+            this.Txt_Cliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txt_Cliente.Font = fonteBold;
+            this.Txt_Cliente.ForeColor = corTexto;
+            this.Txt_Cliente.BackColor = corAzulClaro;
+            this.Txt_Cliente.ReadOnly = true;
+            this.Txt_Cliente.TabStop = false;
+            this.Txt_Cliente.Location = new System.Drawing.Point(12, 25);
+            this.Txt_Cliente.Size = new System.Drawing.Size(348, 18);
+            this.Txt_Cliente.Name = "Txt_Cliente";
+
+            // ── pnlDadosRow: Emissão | Vencimento | Status ───────────
+            this.pnlDadosRow.BackColor = corFundo;
+            this.pnlDadosRow.Location = new System.Drawing.Point(20, 158);
+            this.pnlDadosRow.Size = new System.Drawing.Size(375, 58);
+            this.pnlDadosRow.Name = "pnlDadosRow";
+            this.pnlDadosRow.Controls.Add(this.pnlStatus);
+            this.pnlDadosRow.Controls.Add(this.pnlVencimento);
+            this.pnlDadosRow.Controls.Add(this.pnlEmissao);
+
+            // pnlEmissao
+            this.pnlEmissao.BackColor = corCard;
+            this.pnlEmissao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEmissao.Location = new System.Drawing.Point(0, 0);
+            this.pnlEmissao.Size = new System.Drawing.Size(118, 54);
+            this.pnlEmissao.Name = "pnlEmissao";
+            this.pnlEmissao.Controls.Add(this.Txt_Emissao);
+            this.pnlEmissao.Controls.Add(this.lblEmissaoHint);
+
+            this.lblEmissaoHint.AutoSize = true;
+            this.lblEmissaoHint.Font = fonteLabel;
+            this.lblEmissaoHint.ForeColor = corHint;
+            this.lblEmissaoHint.Location = new System.Drawing.Point(9, 7);
+            this.lblEmissaoHint.Name = "lblEmissaoHint";
+            this.lblEmissaoHint.Text = "EMISSÃO";
+
+            this.Txt_Emissao.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txt_Emissao.Font = fonteInput;
+            this.Txt_Emissao.ForeColor = corTexto;
+            this.Txt_Emissao.BackColor = corCard;
+            this.Txt_Emissao.ReadOnly = true;
+            this.Txt_Emissao.TabStop = false;
+            this.Txt_Emissao.Location = new System.Drawing.Point(9, 27);
+            this.Txt_Emissao.Size = new System.Drawing.Size(96, 18);
+            this.Txt_Emissao.Name = "Txt_Emissao";
+
+            // pnlVencimento
+            this.pnlVencimento.BackColor = corCard;
+            this.pnlVencimento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlVencimento.Location = new System.Drawing.Point(126, 0);
+            this.pnlVencimento.Size = new System.Drawing.Size(124, 54);
+            this.pnlVencimento.Name = "pnlVencimento";
+            this.pnlVencimento.Controls.Add(this.Txt_Vencimento);
+            this.pnlVencimento.Controls.Add(this.lblVencHint);
+
+            this.lblVencHint.AutoSize = true;
+            this.lblVencHint.Font = fonteLabel;
+            this.lblVencHint.ForeColor = corHint;
+            this.lblVencHint.Location = new System.Drawing.Point(9, 7);
+            this.lblVencHint.Name = "lblVencHint";
+            this.lblVencHint.Text = "VENCIMENTO";
+
+            this.Txt_Vencimento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txt_Vencimento.Font = fonteInput;
+            this.Txt_Vencimento.ForeColor = corTexto;
+            this.Txt_Vencimento.BackColor = corCard;
+            this.Txt_Vencimento.ReadOnly = true;
+            this.Txt_Vencimento.TabStop = false;
+            this.Txt_Vencimento.Location = new System.Drawing.Point(9, 27);
+            this.Txt_Vencimento.Size = new System.Drawing.Size(102, 18);
+            this.Txt_Vencimento.Name = "Txt_Vencimento";
+
+            // pnlStatus
+            this.pnlStatus.BackColor = corCard;
+            this.pnlStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlStatus.Location = new System.Drawing.Point(258, 0);
+            this.pnlStatus.Size = new System.Drawing.Size(117, 54);
+            this.pnlStatus.Name = "pnlStatus";
+            this.pnlStatus.Controls.Add(this.Txt_Status);
+            this.pnlStatus.Controls.Add(this.lblStatusHint);
+
+            this.lblStatusHint.AutoSize = true;
+            this.lblStatusHint.Font = fonteLabel;
+            this.lblStatusHint.ForeColor = corHint;
+            this.lblStatusHint.Location = new System.Drawing.Point(9, 7);
+            this.lblStatusHint.Name = "lblStatusHint";
+            this.lblStatusHint.Text = "STATUS";
+
+            this.Txt_Status.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txt_Status.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.Txt_Status.ForeColor = corTexto;
+            this.Txt_Status.BackColor = corCard;
+            this.Txt_Status.ReadOnly = true;
+            this.Txt_Status.TabStop = false;
+            this.Txt_Status.Location = new System.Drawing.Point(9, 27);
+            this.Txt_Status.Size = new System.Drawing.Size(95, 18);
+            this.Txt_Status.Name = "Txt_Status";
+
+            // ── Seção 3 label ─────────────────────────────────────────
+            this.pnlSecTitle3.AutoSize = true;
+            this.pnlSecTitle3.Font = fonteSecao;
+            this.pnlSecTitle3.ForeColor = corHint;
+            this.pnlSecTitle3.Location = new System.Drawing.Point(20, 226);
+            this.pnlSecTitle3.Name = "pnlSecTitle3";
+            this.pnlSecTitle3.Text = "SITUAÇÃO FINANCEIRA";
+
+            // ── pnlFinRow: A Receber | Recebido | Saldo ───────────────
+            this.pnlFinRow.BackColor = corFundo;
+            this.pnlFinRow.Location = new System.Drawing.Point(20, 242);
+            this.pnlFinRow.Size = new System.Drawing.Size(375, 58);
+            this.pnlFinRow.Name = "pnlFinRow";
+            this.pnlFinRow.Controls.Add(this.pnlSaldo);
+            this.pnlFinRow.Controls.Add(this.pnlRecebido);
+            this.pnlFinRow.Controls.Add(this.pnlAReceber);
+
+            // pnlAReceber
+            this.pnlAReceber.BackColor = corCard;
+            this.pnlAReceber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAReceber.Location = new System.Drawing.Point(0, 0);
+            this.pnlAReceber.Size = new System.Drawing.Size(118, 54);
+            this.pnlAReceber.Name = "pnlAReceber";
+            this.pnlAReceber.Controls.Add(this.Txt_Receber);
+            this.pnlAReceber.Controls.Add(this.lblAReceberHint);
+
+            this.lblAReceberHint.AutoSize = true;
+            this.lblAReceberHint.Font = fonteLabel;
+            this.lblAReceberHint.ForeColor = corHint;
+            this.lblAReceberHint.Location = new System.Drawing.Point(9, 7);
+            this.lblAReceberHint.Name = "lblAReceberHint";
+            this.lblAReceberHint.Text = "A RECEBER";
+
+            this.Txt_Receber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txt_Receber.Font = fonteBold;
+            this.Txt_Receber.ForeColor = corTexto;
+            this.Txt_Receber.BackColor = corCard;
+            this.Txt_Receber.ReadOnly = true;
+            this.Txt_Receber.TabStop = false;
+            this.Txt_Receber.Location = new System.Drawing.Point(9, 27);
+            this.Txt_Receber.Size = new System.Drawing.Size(96, 18);
+            this.Txt_Receber.Name = "Txt_Receber";
+
+            // pnlRecebido
+            this.pnlRecebido.BackColor = corCard;
+            this.pnlRecebido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlRecebido.Location = new System.Drawing.Point(126, 0);
+            this.pnlRecebido.Size = new System.Drawing.Size(124, 54);
+            this.pnlRecebido.Name = "pnlRecebido";
+            this.pnlRecebido.Controls.Add(this.Txt_Recebido);
+            this.pnlRecebido.Controls.Add(this.lblRecebidoHint);
+
+            this.lblRecebidoHint.AutoSize = true;
+            this.lblRecebidoHint.Font = fonteLabel;
+            this.lblRecebidoHint.ForeColor = corHint;
+            this.lblRecebidoHint.Location = new System.Drawing.Point(9, 7);
+            this.lblRecebidoHint.Name = "lblRecebidoHint";
+            this.lblRecebidoHint.Text = "JÁ RECEBIDO";
+
+            this.Txt_Recebido.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txt_Recebido.Font = fonteBold;
+            this.Txt_Recebido.ForeColor = corVerde;
+            this.Txt_Recebido.BackColor = corCard;
+            this.Txt_Recebido.ReadOnly = true;
+            this.Txt_Recebido.TabStop = false;
+            this.Txt_Recebido.Location = new System.Drawing.Point(9, 27);
+            this.Txt_Recebido.Size = new System.Drawing.Size(102, 18);
+            this.Txt_Recebido.Name = "Txt_Recebido";
+
+            // pnlSaldo
+            this.pnlSaldo.BackColor = corCard;
+            this.pnlSaldo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSaldo.Location = new System.Drawing.Point(258, 0);
+            this.pnlSaldo.Size = new System.Drawing.Size(117, 54);
+            this.pnlSaldo.Name = "pnlSaldo";
+            this.pnlSaldo.Controls.Add(this.Txt_Diferenca);
+            this.pnlSaldo.Controls.Add(this.lblSaldoHint);
+
+            this.lblSaldoHint.AutoSize = true;
+            this.lblSaldoHint.Font = fonteLabel;
+            this.lblSaldoHint.ForeColor = corHint;
+            this.lblSaldoHint.Location = new System.Drawing.Point(9, 7);
+            this.lblSaldoHint.Name = "lblSaldoHint";
+            this.lblSaldoHint.Text = "SALDO";
+
+            this.Txt_Diferenca.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txt_Diferenca.Font = fonteBold;
+            this.Txt_Diferenca.ForeColor = corVermelho;
+            this.Txt_Diferenca.BackColor = corCard;
+            this.Txt_Diferenca.ReadOnly = true;
+            this.Txt_Diferenca.TabStop = false;
+            this.Txt_Diferenca.Location = new System.Drawing.Point(9, 27);
+            this.Txt_Diferenca.Size = new System.Drawing.Size(95, 18);
+            this.Txt_Diferenca.Name = "Txt_Diferenca";
+
+            // ── pnlUltPag ─────────────────────────────────────────────
+            this.pnlUltPag.BackColor = corCard;
+            this.pnlUltPag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlUltPag.Location = new System.Drawing.Point(20, 308);
+            this.pnlUltPag.Size = new System.Drawing.Size(375, 46);
+            this.pnlUltPag.Name = "pnlUltPag";
+            this.pnlUltPag.Controls.Add(this.Txt_DataUltPag);
+            this.pnlUltPag.Controls.Add(this.lblUltPagHint);
+
+            this.lblUltPagHint.AutoSize = true;
+            this.lblUltPagHint.Font = fonteLabel;
+            this.lblUltPagHint.ForeColor = corHint;
+            this.lblUltPagHint.Location = new System.Drawing.Point(12, 7);
+            this.lblUltPagHint.Name = "lblUltPagHint";
+            this.lblUltPagHint.Text = "DATA DO ÚLTIMO PAGAMENTO";
+
+            this.Txt_DataUltPag.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txt_DataUltPag.Font = fonteInput;
+            this.Txt_DataUltPag.ForeColor = corTexto;
+            this.Txt_DataUltPag.BackColor = corCard;
+            this.Txt_DataUltPag.ReadOnly = true;
+            this.Txt_DataUltPag.TabStop = false;
+            this.Txt_DataUltPag.Location = new System.Drawing.Point(12, 25);
+            this.Txt_DataUltPag.Size = new System.Drawing.Size(348, 18);
+            this.Txt_DataUltPag.Name = "Txt_DataUltPag";
+
+            // ── pnlPagValor ───────────────────────────────────────────
+            this.pnlPagValor.BackColor = corVerdePag;
+            this.pnlPagValor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPagValor.Location = new System.Drawing.Point(20, 368);
+            this.pnlPagValor.Size = new System.Drawing.Size(375, 58);
+            this.pnlPagValor.Name = "pnlPagValor";
+            this.pnlPagValor.Controls.Add(this.Txt_APagar);
+            this.pnlPagValor.Controls.Add(this.lblPagValorHint);
+            this.pnlPagValor.Controls.Add(this.lblPagValor);
+
+            this.lblPagValor.AutoSize = true;
+            this.lblPagValor.Font = fonteLabel;
+            this.lblPagValor.ForeColor = corVerde;
+            this.lblPagValor.Location = new System.Drawing.Point(12, 9);
+            this.lblPagValor.Name = "lblPagValor";
+            this.lblPagValor.Text = "VALOR DO PAGAMENTO (R$)";
+
+            this.lblPagValorHint.AutoSize = true;
+            this.lblPagValorHint.Font = fonteHint;
+            this.lblPagValorHint.ForeColor = System.Drawing.Color.FromArgb(134, 239, 172);
+            this.lblPagValorHint.Location = new System.Drawing.Point(192, 11);
+            this.lblPagValorHint.Name = "lblPagValorHint";
+            this.lblPagValorHint.Text = "ex: 650,00";
+
+            this.Txt_APagar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txt_APagar.Font = fonteMoney;
+            this.Txt_APagar.ForeColor = corVerde;
+            this.Txt_APagar.BackColor = corVerdePag;
+            this.Txt_APagar.Location = new System.Drawing.Point(12, 30);
+            this.Txt_APagar.Size = new System.Drawing.Size(348, 22);
+            this.Txt_APagar.TabIndex = 2;
+            this.Txt_APagar.Name = "Txt_APagar";
+            this.Txt_APagar.TextChanged += new System.EventHandler(this.Txt_APagar_TextChanged);
+            this.Txt_APagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_APagar_KeyPress);
+
+            // ── pnlPagData ────────────────────────────────────────────
+            this.pnlPagData.BackColor = corCard;
+            this.pnlPagData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPagData.Location = new System.Drawing.Point(20, 434);
+            this.pnlPagData.Size = new System.Drawing.Size(375, 58);
+            this.pnlPagData.Name = "pnlPagData";
+            this.pnlPagData.Controls.Add(this.Dtp_Pagamento);
+            this.pnlPagData.Controls.Add(this.lblPagDataHint);
+            this.pnlPagData.Controls.Add(this.lblPagData);
+
+            this.lblPagData.AutoSize = true;
+            this.lblPagData.Font = fonteLabel;
+            this.lblPagData.ForeColor = corHint;
+            this.lblPagData.Location = new System.Drawing.Point(12, 9);
+            this.lblPagData.Name = "lblPagData";
+            this.lblPagData.Text = "DATA DO PAGAMENTO";
+
+            this.lblPagDataHint.AutoSize = true;
+            this.lblPagDataHint.Font = fonteHint;
+            this.lblPagDataHint.ForeColor = corHintFraco;
+            this.lblPagDataHint.Location = new System.Drawing.Point(160, 11);
+            this.lblPagDataHint.Name = "lblPagDataHint";
+            this.lblPagDataHint.Text = "dd/MM/aaaa";
+
+            this.Dtp_Pagamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Dtp_Pagamento.CustomFormat = "dd/MM/yyyy";
+            this.Dtp_Pagamento.Font = fonteInput;
+            this.Dtp_Pagamento.Location = new System.Drawing.Point(12, 30);
+            this.Dtp_Pagamento.Size = new System.Drawing.Size(200, 24);
+            this.Dtp_Pagamento.TabIndex = 3;
+            this.Dtp_Pagamento.Name = "Dtp_Pagamento";
+
+            // ── pnlSep ────────────────────────────────────────────────
+            this.pnlSep.BackColor = corBorda;
+            this.pnlSep.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlSep.Height = 1;
+            this.pnlSep.Name = "pnlSep";
+
+            // ── pnlFooter ─────────────────────────────────────────────
+            this.pnlFooter.BackColor = System.Drawing.Color.White;
+            this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlFooter.Height = 62;
+            this.pnlFooter.Name = "pnlFooter";
+            this.pnlFooter.Controls.Add(this.Btn_Limpar);
+            this.pnlFooter.Controls.Add(this.Btn_Registrar);
+
+            this.Btn_Registrar.BackColor = corAccent;
+            this.Btn_Registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Registrar.FlatAppearance.BorderSize = 0;
+            this.Btn_Registrar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Btn_Registrar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Registrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Registrar.Location = new System.Drawing.Point(230, 11);
+            this.Btn_Registrar.Size = new System.Drawing.Size(168, 38);
+            this.Btn_Registrar.TabIndex = 5;
+            this.Btn_Registrar.Name = "Btn_Registrar";
+            this.Btn_Registrar.Text = "✓  Registrar Pagamento";
+            this.Btn_Registrar.UseVisualStyleBackColor = false;
+            this.Btn_Registrar.Click += new System.EventHandler(this.Btn_Registrar_Click);
+
+            this.Btn_Limpar.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
+            this.Btn_Limpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Limpar.FlatAppearance.BorderColor = corBorda;
+            this.Btn_Limpar.FlatAppearance.BorderSize = 1;
+            this.Btn_Limpar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.Btn_Limpar.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.Btn_Limpar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Limpar.Location = new System.Drawing.Point(20, 11);
+            this.Btn_Limpar.Size = new System.Drawing.Size(100, 38);
+            this.Btn_Limpar.TabIndex = 4;
+            this.Btn_Limpar.Name = "Btn_Limpar";
+            this.Btn_Limpar.Text = "Limpar";
+            this.Btn_Limpar.UseVisualStyleBackColor = false;
+            this.Btn_Limpar.Click += new System.EventHandler(this.Btn_Limpar_Click);
+
+            // ── Form ──────────────────────────────────────────────────
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(408, 449);
-            this.Controls.Add(this.Btn_Buscar);
-            this.Controls.Add(this.Txt_IdTitulo);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.BackColor = corFundo;
+            this.ClientSize = new System.Drawing.Size(420, 640);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "LancarTituloRecebido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LancarTituloRecebido";
+            this.Text = "Receber Título — Sistema Financeiro";
+
+            this.Controls.Add(this.pnlBody);
+            this.Controls.Add(this.pnlFooter);
+            this.Controls.Add(this.pnlSep);
+            this.Controls.Add(this.pnlHeader);
+            this.Controls.Add(this.pnlAccent);
+
             this.Load += new System.EventHandler(this.LancarTituloRecebido_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
+            this.pnlBusca.ResumeLayout(false);
+            this.pnlBusca.PerformLayout();
+            this.pnlCliente.ResumeLayout(false);
+            this.pnlCliente.PerformLayout();
+            this.pnlDadosRow.ResumeLayout(false);
+            this.pnlEmissao.ResumeLayout(false);
+            this.pnlEmissao.PerformLayout();
+            this.pnlVencimento.ResumeLayout(false);
+            this.pnlVencimento.PerformLayout();
+            this.pnlStatus.ResumeLayout(false);
+            this.pnlStatus.PerformLayout();
+            this.pnlFinRow.ResumeLayout(false);
+            this.pnlAReceber.ResumeLayout(false);
+            this.pnlAReceber.PerformLayout();
+            this.pnlRecebido.ResumeLayout(false);
+            this.pnlRecebido.PerformLayout();
+            this.pnlSaldo.ResumeLayout(false);
+            this.pnlSaldo.PerformLayout();
+            this.pnlUltPag.ResumeLayout(false);
+            this.pnlUltPag.PerformLayout();
+            this.pnlPagValor.ResumeLayout(false);
+            this.pnlPagValor.PerformLayout();
+            this.pnlPagData.ResumeLayout(false);
+            this.pnlPagData.PerformLayout();
+            this.pnlFooter.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Txt_IdTitulo;
-        private System.Windows.Forms.Button Btn_Buscar;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox Txt_Receber;
-        private System.Windows.Forms.TextBox Txt_Emissao;
-        private System.Windows.Forms.TextBox Txt_Cliente;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Txt_Vencimento;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox Txt_Status;
-        private System.Windows.Forms.TextBox Txt_DataUltPag;
-        private System.Windows.Forms.TextBox Txt_Diferenca;
-        private System.Windows.Forms.TextBox Txt_Recebido;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel pnlHeader, pnlBody, pnlFooter, pnlAccent, pnlSep;
+        private System.Windows.Forms.Panel pnlBusca, pnlCliente, pnlDadosRow;
+        private System.Windows.Forms.Panel pnlEmissao, pnlVencimento, pnlStatus;
+        private System.Windows.Forms.Panel pnlFinRow, pnlAReceber, pnlRecebido, pnlSaldo;
+        private System.Windows.Forms.Panel pnlUltPag, pnlPagValor, pnlPagData;
+        private System.Windows.Forms.Label lblTitulo, lblSubtitulo;
+        private System.Windows.Forms.Label pnlSecTitle1, pnlSecTitle2, pnlSecTitle3;
+        private System.Windows.Forms.Label lblIdTitulo, lblIdHint;
+        private System.Windows.Forms.Label lblClienteHint;
+        private System.Windows.Forms.Label lblEmissaoHint, lblVencHint, lblStatusHint;
+        private System.Windows.Forms.Label lblAReceberHint, lblRecebidoHint, lblSaldoHint;
+        private System.Windows.Forms.Label lblUltPagHint;
+        private System.Windows.Forms.Label lblPagValor, lblPagValorHint;
+        private System.Windows.Forms.Label lblPagData, lblPagDataHint;
+        private System.Windows.Forms.TextBox Txt_IdTitulo, Txt_Cliente;
+        private System.Windows.Forms.TextBox Txt_Emissao, Txt_Vencimento, Txt_Status;
+        private System.Windows.Forms.TextBox Txt_Receber, Txt_Recebido, Txt_Diferenca;
+        private System.Windows.Forms.TextBox Txt_DataUltPag, Txt_APagar;
         private System.Windows.Forms.DateTimePicker Dtp_Pagamento;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox Txt_APagar;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button Btn_Registrar;
+        private System.Windows.Forms.Button Btn_Buscar, Btn_Registrar, Btn_Limpar;
     }
 }
