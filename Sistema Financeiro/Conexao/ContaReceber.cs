@@ -27,6 +27,27 @@ namespace Sistema_Financeiro.Conexao
             return lista.Max(c => c.IdTitulo) + 1;
         }
 
+        // Estornar pagamento (total ou parcial)
+        public string EstornarPagamento(decimal valorEstorno)
+        {
+            if (Status == "Aberto")
+                return "Este título não possui pagamentos para estornar.";
+            if (valorEstorno <= 0)
+                return "Informe um valor válido para estorno.";
+            if (valorEstorno > ValorRecebido)
+                return $"Valor de estorno ({valorEstorno:C2}) é maior que o valor já recebido ({ValorRecebido:C2}).";
+
+            ValorRecebido -= valorEstorno;
+            DataPagamento = ValorRecebido > 0 ? DataPagamento : (DateTime?)null;
+
+            if (ValorRecebido == 0)
+                Status = "Aberto";
+            else
+                Status = "Pago Parcial";
+
+            return "OK";
+        }
+
         // Registrar pagamento (total ou parcial)
         public string RegistrarPagamento(decimal valorPagamento, DateTime value)
         {

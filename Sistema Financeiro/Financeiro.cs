@@ -78,6 +78,11 @@ namespace Sistema_Financeiro
             AbrirMdi(new LancarTituloRecebido());
         }
 
+        private void estornarTituloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirMdi(new EstornarTitulo());
+        }
+
         // ── Relatórios ────────────────────────────────────────────────
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {

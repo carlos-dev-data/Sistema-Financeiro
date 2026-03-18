@@ -38,3 +38,4 @@ C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Thr
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Configuracao.Formconfiguracoes.resources
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_Relatorios.TitulosAReceber.resources
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Dashboard.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_ContaReceber.EstornarTitulo.resources

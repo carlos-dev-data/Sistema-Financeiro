@@ -25,6 +25,7 @@
             this.lançarTituloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarTituloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receberTituloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estornarTituloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.títulosAReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,7 @@
                 this.configuraçãoToolStripMenuItem
             });
 
-            // ── Cadastros (topo) ──────────────────────────────────────
+            // ── Cadastros ─────────────────────────────────────────────
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -101,7 +102,7 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
 
-            // ── Contas a Receber (topo) ───────────────────────────────
+            // ── Contas a Receber ──────────────────────────────────────
             this.titToolStripMenuItem.Text = "Contas a Receber";
             this.titToolStripMenuItem.Name = "titToolStripMenuItem";
             this.titToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -112,7 +113,8 @@
             this.titToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
                 this.lançarTituloToolStripMenuItem,
                 this.alterarTituloToolStripMenuItem,
-                this.receberTituloToolStripMenuItem
+                this.receberTituloToolStripMenuItem,
+                this.estornarTituloToolStripMenuItem
             });
 
             this.lançarTituloToolStripMenuItem.Text = "  Lançar Título";
@@ -142,7 +144,16 @@
             this.receberTituloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.receberTituloToolStripMenuItem.Click += new System.EventHandler(this.receberTituloToolStripMenuItem_Click);
 
-            // ── Relatórios (topo) ─────────────────────────────────────
+            this.estornarTituloToolStripMenuItem.Text = "  Estornar Pagamento";
+            this.estornarTituloToolStripMenuItem.Name = "estornarTituloToolStripMenuItem";
+            this.estornarTituloToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.estornarTituloToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(185, 28, 28);
+            this.estornarTituloToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.estornarTituloToolStripMenuItem.Padding = new System.Windows.Forms.Padding(12, 4, 20, 4);
+            this.estornarTituloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estornarTituloToolStripMenuItem.Click += new System.EventHandler(this.estornarTituloToolStripMenuItem_Click);
+
+            // ── Relatórios ────────────────────────────────────────────
             this.relatorioToolStripMenuItem.Text = "Relatórios";
             this.relatorioToolStripMenuItem.Name = "relatorioToolStripMenuItem";
             this.relatorioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -173,7 +184,7 @@
             this.títulosAReceberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.títulosAReceberToolStripMenuItem.Click += new System.EventHandler(this.títulosAReceberToolStripMenuItem_Click);
 
-            // ── Configurações (topo) ──────────────────────────────────
+            // ── Configurações ─────────────────────────────────────────
             this.configuraçãoToolStripMenuItem.Text = "Configurações";
             this.configuraçãoToolStripMenuItem.Name = "configuraçãoToolStripMenuItem";
             this.configuraçãoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -255,6 +266,7 @@
         private System.Windows.Forms.ToolStripMenuItem lançarTituloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarTituloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem receberTituloToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estornarTituloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatorioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem títulosAReceberToolStripMenuItem;
