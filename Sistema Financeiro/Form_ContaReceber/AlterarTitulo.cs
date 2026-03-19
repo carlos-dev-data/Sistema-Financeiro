@@ -23,6 +23,12 @@ namespace Sistema_Financeiro.Form_ContaReceber
 
         private void AlterarTitulo_Load(object sender, EventArgs e) { }
 
+        public void PreCarregarTitulo(int idTitulo)
+        {
+            Txt_IDTitulo.Text = idTitulo.ToString();
+            BuscarTitulo();
+        }
+
         // ── Busca título pelo ID ──────────────────────────────────────
         private void Txt_IDTitulo_MouseLeave(object sender, EventArgs e) => BuscarTitulo();
 

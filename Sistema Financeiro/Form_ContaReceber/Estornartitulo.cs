@@ -22,6 +22,14 @@ namespace Sistema_Financeiro.Form_ContaReceber
             InitializeComponent();
         }
 
+        private void EstornarTitulo_Load(object sender, EventArgs e) { }
+
+        public void PreCarregarTitulo(int idTitulo)
+        {
+            Txt_IdTitulo.Text = idTitulo.ToString();
+            Btn_Buscar_Click(null, EventArgs.Empty);
+        }
+
         // ── Buscar título ─────────────────────────────────────────────
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
@@ -183,10 +191,5 @@ namespace Sistema_Financeiro.Form_ContaReceber
 
         private void Mostrar(string msg, string titulo, MessageBoxIcon icone) =>
             MessageBox.Show(msg, titulo, MessageBoxButtons.OK, icone);
-
-        private void EstornarTitulo_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -1,15 +1,13 @@
 ﻿using Newtonsoft.Json;
 using Sistema_Financeiro.Conexao;
+using Sistema_Financeiro.Form_ContaReceber;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Sistema_Financeiro.Form_Relatorios
 {
@@ -17,9 +15,10 @@ namespace Sistema_Financeiro.Form_Relatorios
     {
         private List<ContaReceber> _todos = new List<ContaReceber>();
         private List<ContaReceber> _filtrados = new List<ContaReceber>();
-
-        private readonly Color CorVerde = Color.FromArgb(46, 125, 50);
-        private readonly Color CorVermelho = Color.FromArgb(229, 57, 53);
+        private ContaReceber _selecionado = null;
+        private readonly CultureInfo _ptBR = new CultureInfo("pt-BR");
+        private readonly Color CorVerde = Color.FromArgb(22, 101, 52);
+        private readonly Color CorVermelho = Color.FromArgb(185, 28, 28);
 
         public TitulosAReceber()
         {
@@ -28,18 +27,18 @@ namespace Sistema_Financeiro.Form_Relatorios
 
         private void TitulosAReceber_Load(object sender, EventArgs e)
         {
-            cmbStatusFinan.Items.Clear();
-            cmbStatusFinan.Items.AddRange(new object[] { "Todos", "Aberto", "Pago", "Pago Parcial", "Vencido" });
-            cmbStatusFinan.SelectedIndex = 0;
-            // Garante que os filtros de data iniciam desmarcados
-            dtpEmissaoFinan.Checked = false;
-            dtpVencimentoIniFinan.Checked = false;
-            dtpVencimentoFinalFinan.Checked = false;
-
+            cmbStatus.Items.Clear();
+            cmbStatus.Items.AddRange(new object[] { "Todos", "Aberto", "Pago", "Pago Parcial", "Vencido" });
+            cmbStatus.SelectedIndex = 0;
+            dtpEmissao.Checked = false;
+            dtpVencIni.Checked = false;
+            dtpVencFim.Checked = false;
             ConfigurarGrid();
+            AtualizarBotoes();
             CarregarDados();
         }
 
+        // ── Dados ─────────────────────────────────────────────────────
         private void CarregarDados()
         {
             try
@@ -47,186 +46,251 @@ namespace Sistema_Financeiro.Form_Relatorios
                 string cam = new ContaReceber().caminhoArquivoContaReceber;
                 if (File.Exists(cam))
                 {
-                    var settings = new JsonSerializerSettings
-                    {
-                        DateTimeZoneHandling = DateTimeZoneHandling.Local  // ← corrige o fuso -04:00
-                    };
-
+                    JsonSerializerSettings cfg = new JsonSerializerSettings
+                    { DateTimeZoneHandling = DateTimeZoneHandling.Local };
                     _todos = JsonConvert.DeserializeObject<List<ContaReceber>>(
-                                 File.ReadAllText(cam), settings)
-                             ?? new List<ContaReceber>();
+                                 File.ReadAllText(cam), cfg) ?? new List<ContaReceber>();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"ERRO ao carregar: {ex.Message}");
+                MessageBox.Show("Erro ao carregar: " + ex.Message, "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _todos = new List<ContaReceber>();
             }
-
             _filtrados = new List<ContaReceber>(_todos);
             PreencherGrid(_filtrados);
         }
 
-        // ── Configurar DataGridView ────────────────────────────────
+        // ── Grid ──────────────────────────────────────────────────────
         private void ConfigurarGrid()
         {
             dgvTitulos.Columns.Clear();
-
-            AdicionarColuna("IdTitulo", "ID", 60, false);
-            AdicionarColuna("IdCliente", "Cód. Cliente", 90, false);
-            AdicionarColuna("NomeCliente", "Nome Cliente", 200, true);
-            AdicionarColuna("DataEmissao", "Dt. Emissão", 100, false);
-            AdicionarColuna("DataVencimento", "Dt. Vencimento", 100, false);
-            AdicionarColuna("ValorAReceber", "Valor a Receber", 110, false);
-            AdicionarColuna("ValorRecebido", "Valor Recebido", 110, false);
-            AdicionarColuna("Diferenca", "Saldo", 100, false);
-            AdicionarColuna("Status", "Status", 95, false);
-
             dgvTitulos.AutoGenerateColumns = false;
+            dgvTitulos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvTitulos.MultiSelect = false;
+            dgvTitulos.ReadOnly = true;
+            dgvTitulos.AllowUserToAddRows = false;
+            dgvTitulos.AllowUserToDeleteRows = false;
+            dgvTitulos.RowHeadersVisible = false;
+            dgvTitulos.BackgroundColor = Color.White;
+            dgvTitulos.BorderStyle = BorderStyle.None;
+            dgvTitulos.GridColor = Color.FromArgb(241, 245, 249);
+            dgvTitulos.RowTemplate.Height = 30;
+
+            dgvTitulos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(248, 249, 252);
+            dgvTitulos.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(100, 116, 139);
+            dgvTitulos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            dgvTitulos.ColumnHeadersHeight = 32;
+            dgvTitulos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+
+            dgvTitulos.DefaultCellStyle.Font = new Font("Segoe UI", 9F);
+            dgvTitulos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(238, 242, 255);
+            dgvTitulos.DefaultCellStyle.SelectionForeColor = Color.FromArgb(30, 41, 59);
+
+            Col("IdTitulo", "ID", 55, false, DataGridViewContentAlignment.MiddleCenter, "");
+            Col("IdCliente", "Cód.", 55, false, DataGridViewContentAlignment.MiddleCenter, "");
+            Col("NomeCliente", "Cliente", 0, true, DataGridViewContentAlignment.MiddleLeft, "");
+            Col("DataEmissao", "Emissão", 90, false, DataGridViewContentAlignment.MiddleCenter, "dd/MM/yyyy");
+            Col("DataVencimento", "Vencimento", 90, false, DataGridViewContentAlignment.MiddleCenter, "dd/MM/yyyy");
+            Col("ValorAReceber", "A Receber", 105, false, DataGridViewContentAlignment.MiddleRight, "C2");
+            Col("ValorRecebido", "Recebido", 105, false, DataGridViewContentAlignment.MiddleRight, "C2");
+            Col("Diferenca", "Saldo", 105, false, DataGridViewContentAlignment.MiddleRight, "C2");
+            Col("Status", "Status", 95, false, DataGridViewContentAlignment.MiddleCenter, "");
+
             dgvTitulos.CellFormatting += dgvTitulos_CellFormatting;
+            dgvTitulos.SelectionChanged += dgvTitulos_SelectionChanged;
         }
 
-        private void AdicionarColuna(string prop, string header, int width, bool fill)
+        private void Col(string prop, string header, int w, bool fill,
+                         DataGridViewContentAlignment align, string fmt)
         {
-            var col = new DataGridViewTextBoxColumn
+            DataGridViewTextBoxColumn c = new DataGridViewTextBoxColumn
             {
                 DataPropertyName = prop,
                 HeaderText = header,
-                Width = width,
+                Width = w,
                 ReadOnly = true,
                 SortMode = DataGridViewColumnSortMode.Automatic,
-                AutoSizeMode = fill
-                     ? DataGridViewAutoSizeColumnMode.Fill
-                     : DataGridViewAutoSizeColumnMode.None
+                AutoSizeMode = fill ? DataGridViewAutoSizeColumnMode.Fill
+                                        : DataGridViewAutoSizeColumnMode.None
             };
-
-            if (prop == "ValorAReceber" || prop == "ValorRecebido" || prop == "Diferenca")
-                col.DefaultCellStyle.Format = "C2";
-
-            if (prop == "DataEmissao" || prop == "DataVencimento")
-                col.DefaultCellStyle.Format = "dd/MM/yyyy";
-
-            col.DefaultCellStyle.Alignment =
-                (prop.Contains("Valor") || prop == "Diferenca")
-                ? DataGridViewContentAlignment.MiddleRight
-                : DataGridViewContentAlignment.MiddleLeft;
-
-            dgvTitulos.Columns.Add(col);
+            c.DefaultCellStyle.Alignment = align;
+            if (!string.IsNullOrEmpty(fmt))
+                c.DefaultCellStyle.Format = fmt;
+            dgvTitulos.Columns.Add(c);
         }
 
-        // ── Preencher grid ─────────────────────────────────────────
         private void PreencherGrid(List<ContaReceber> lista)
         {
-            var bs = new BindingSource();
+            BindingSource bs = new BindingSource();
             bs.DataSource = lista.OrderByDescending(t => t.DataVencimento).ToList();
             dgvTitulos.DataSource = bs;
             AtualizarTotais(lista);
-        }
-
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
+            _selecionado = null;
+            AtualizarBotoes();
         }
 
         private void dgvTitulos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex < 0 || dgvTitulos.Rows[e.RowIndex].DataBoundItem == null) return;
-            var t = (ContaReceber)dgvTitulos.Rows[e.RowIndex].DataBoundItem;
+            ContaReceber t = (ContaReceber)dgvTitulos.Rows[e.RowIndex].DataBoundItem;
+            bool venc = t.Status != "Pago" && t.DataVencimento.Date < DateTime.Today;
 
-            bool vencido = t.Status != "Pago" && t.DataVencimento.Date < DateTime.Today;
+            if (!dgvTitulos.Rows[e.RowIndex].Selected)
+            {
+                Color bg;
+                if (t.Status == "Pago") bg = Color.FromArgb(240, 253, 244);
+                else if (t.Status == "Pago Parcial") bg = Color.FromArgb(254, 252, 232);
+                else if (venc) bg = Color.FromArgb(254, 242, 242);
+                else bg = Color.White;
+                dgvTitulos.Rows[e.RowIndex].DefaultCellStyle.BackColor = bg;
+            }
 
-            Color bg;
-            if (t.Status == "Pago")
+            string colProp = dgvTitulos.Columns[e.ColumnIndex].DataPropertyName;
+            DataGridViewCell cell = dgvTitulos.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            if (colProp == "Status")
             {
-                bg = Color.FromArgb(232, 245, 233);
+                string txt = venc && t.Status != "Pago" ? "Vencido" : t.Status;
+                e.Value = txt; e.FormattingApplied = true;
+                if (txt == "Pago") cell.Style.ForeColor = CorVerde;
+                else if (txt == "Pago Parcial") cell.Style.ForeColor = Color.FromArgb(29, 78, 216);
+                else if (txt == "Vencido") cell.Style.ForeColor = CorVermelho;
+                else cell.Style.ForeColor = Color.FromArgb(146, 64, 14);
+                cell.Style.Font = new Font(dgvTitulos.DefaultCellStyle.Font, FontStyle.Bold);
             }
-            else if (t.Status == "Pago Parcial")
+
+            if (colProp == "Diferenca")
             {
-                bg = Color.FromArgb(255, 249, 196);
+                cell.Style.ForeColor = t.Diferenca > 0 ? CorVermelho : CorVerde;
+                cell.Style.Font = new Font(dgvTitulos.DefaultCellStyle.Font, FontStyle.Bold);
             }
-            else if (vencido)
+        }
+
+        // ── Seleção → habilita botões ─────────────────────────────────
+        private void dgvTitulos_SelectionChanged(object sender, EventArgs e)
+        {
+            _selecionado = dgvTitulos.SelectedRows.Count > 0 &&
+                           dgvTitulos.SelectedRows[0].DataBoundItem != null
+                ? (ContaReceber)dgvTitulos.SelectedRows[0].DataBoundItem
+                : null;
+            AtualizarBotoes();
+        }
+
+        private void AtualizarBotoes()
+        {
+            bool tem = _selecionado != null;
+            bool naoQuit = tem && _selecionado.Status != "Pago";
+            bool temPag = tem && _selecionado.Status != "Aberto";
+
+            btnReceber.Enabled = naoQuit;
+            btnEditar.Enabled = tem;
+            btnEstornar.Enabled = temPag;
+
+            btnReceber.BackColor = naoQuit ? Color.FromArgb(22, 163, 74) : Color.FromArgb(148, 163, 184);
+            btnEditar.BackColor = tem ? Color.FromArgb(245, 158, 11) : Color.FromArgb(148, 163, 184);
+            btnEstornar.BackColor = temPag ? Color.FromArgb(220, 38, 38) : Color.FromArgb(148, 163, 184);
+
+            // Painel de info da linha selecionada
+            if (tem)
             {
-                bg = Color.FromArgb(255, 235, 238);
+                bool venc = _selecionado.Status != "Pago" &&
+                            _selecionado.DataVencimento.Date < DateTime.Today;
+                string status = venc ? "Vencido" : _selecionado.Status;
+
+                lblSelInfo.Text =
+                    string.Format("Título #{0}  |  {1}  |  A Receber: {2}  |  Recebido: {3}  |  Saldo: {4}  |  Status: {5}",
+                        _selecionado.IdTitulo,
+                        _selecionado.NomeCliente,
+                        _selecionado.ValorAReceber.ToString("C2", _ptBR),
+                        _selecionado.ValorRecebido.ToString("C2", _ptBR),
+                        _selecionado.Diferenca.ToString("C2", _ptBR),
+                        status);
+
+                lblSelInfo.ForeColor =
+                    status == "Pago" ? CorVerde :
+                    status == "Vencido" ? CorVermelho :
+                    status == "Pago Parcial" ? Color.FromArgb(29, 78, 216) :
+                                              Color.FromArgb(146, 64, 14);
+                pnlSelecao.Visible = true;
             }
             else
             {
-                bg = Color.White;
-            }
-
-            if (!dgvTitulos.Rows[e.RowIndex].Selected)
-                dgvTitulos.Rows[e.RowIndex].DefaultCellStyle.BackColor = bg;
-
-            // Status — exibe "Vencido" quando aplicável
-            if (dgvTitulos.Columns[e.ColumnIndex].DataPropertyName == "Status" && vencido && t.Status != "Pago")
-            {
-                e.Value = "Vencido";
-                e.FormattingApplied = true;
-            }
-
-            // Saldo — vermelho se tem saldo, verde se quitado
-            if (dgvTitulos.Columns[e.ColumnIndex].DataPropertyName == "Diferenca")
-            {
-                dgvTitulos.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor =
-                    t.Diferenca > 0 ? CorVermelho : CorVerde;
-                dgvTitulos.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.Font =
-                    new Font(dgvTitulos.Font, FontStyle.Bold);
+                pnlSelecao.Visible = false;
             }
         }
 
-        // ── Totalizadores ──────────────────────────────────────────
-        private void AtualizarTotais(List<ContaReceber> lista = null)
+        // ── Ações ─────────────────────────────────────────────────────
+        private void btnReceber_Click(object sender, EventArgs e)
         {
-            var src = lista ?? _todos;
-            var ptBR = new System.Globalization.CultureInfo("pt-BR");
-
-            lblTotalTitulos.Text = src.Count.ToString();
-            lblTotalAReceber.Text = src.Sum(t => t.ValorAReceber).ToString("C2", ptBR);
-            lblTotalRecebido.Text = src.Sum(t => t.ValorRecebido).ToString("C2", ptBR);
-            lblTotalSaldo.Text = src.Sum(t => t.Diferenca).ToString("C2", ptBR);
+            if (_selecionado == null) return;
+            LancarTituloRecebido frm = new LancarTituloRecebido();
+            frm.PreCarregarTitulo(_selecionado.IdTitulo);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+            Recarregar();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (_selecionado == null) return;
+            AlterarTitulo frm = new AlterarTitulo();
+            frm.PreCarregarTitulo(_selecionado.IdTitulo);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+            Recarregar();
+        }
+
+        private void btnEstornar_Click(object sender, EventArgs e)
+        {
+            if (_selecionado == null) return;
+            EstornarTitulo frm = new EstornarTitulo();
+            frm.PreCarregarTitulo(_selecionado.IdTitulo);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+            Recarregar();
+        }
+
+        private void Recarregar()
+        {
+            CarregarDados();
+            AplicarFiltro();
+        }
+
+        // ── Filtros ───────────────────────────────────────────────────
+        private void btnBuscar_Click(object sender, EventArgs e) => AplicarFiltro();
+
+        private void AplicarFiltro()
         {
             string cod = txtCodCliente.Text.Trim();
-            string nome = txtNomeClienteFinan.Text.Trim().ToLower();
-            string idTit = txtIdTituloFinan.Text.Trim();
-            string status = cmbStatusFinan.SelectedItem?.ToString() ?? "";
+            string nome = txtNomeCliente.Text.Trim().ToLower();
+            string idTit = txtIdTitulo.Text.Trim();
+            string st = cmbStatus.SelectedItem != null ? cmbStatus.SelectedItem.ToString() : "";
 
-            decimal.TryParse(txtValorMinFinan.Text.Replace("R$", "").Trim(), out decimal vMin);
-            decimal.TryParse(txtValorMaxFinan.Text.Replace("R$", "").Trim(), out decimal vMax);
+            decimal vMin = 0, vMax = 0;
+            decimal.TryParse(txtValorMin.Text.Trim(), NumberStyles.Any, _ptBR, out vMin);
+            decimal.TryParse(txtValorMax.Text.Trim(), NumberStyles.Any, _ptBR, out vMax);
 
-            // Datas "zeradas" = não filtrar. Só filtra se diferente do valor padrão (DateTime.MinValue)
-            DateTime dtEmissao = dtpEmissaoFinan.Checked ? dtpEmissaoFinan.Value.Date : DateTime.MinValue;
-            DateTime dtVencIni = dtpVencimentoIniFinan.Checked ? dtpVencimentoIniFinan.Value.Date : DateTime.MinValue;
-            DateTime dtVencFinal = dtpVencimentoFinalFinan.Checked ? dtpVencimentoFinalFinan.Value.Date : DateTime.MaxValue;
+            DateTime dtEm = dtpEmissao.Checked ? dtpEmissao.Value.Date : DateTime.MinValue;
+            DateTime dtVIni = dtpVencIni.Checked ? dtpVencIni.Value.Date : DateTime.MinValue;
+            DateTime dtVFim = dtpVencFim.Checked ? dtpVencFim.Value.Date : DateTime.MaxValue;
 
             _filtrados = _todos.Where(t =>
             {
                 if (!string.IsNullOrEmpty(cod) && !t.IdCliente.ToString().Contains(cod)) return false;
                 if (!string.IsNullOrEmpty(nome) && !t.NomeCliente.ToLower().Contains(nome)) return false;
                 if (!string.IsNullOrEmpty(idTit) && t.IdTitulo.ToString() != idTit) return false;
-
-                if (status != "" && status != "Todos")
+                if (st != "" && st != "Todos")
                 {
-                    bool vencido = t.Status != "Pago" && t.DataVencimento.Date < DateTime.Today;
-                    string stReal = vencido ? "Vencido" : t.Status;
-                    if (stReal != status) return false;
+                    bool v = t.Status != "Pago" && t.DataVencimento.Date < DateTime.Today;
+                    if ((v ? "Vencido" : t.Status) != st) return false;
                 }
-
                 if (vMin > 0 && t.ValorAReceber < vMin) return false;
                 if (vMax > 0 && t.ValorAReceber > vMax) return false;
-
-                if (dtEmissao != DateTime.MinValue && t.DataEmissao.Date != dtEmissao) return false;
-                if (dtVencIni != DateTime.MinValue && t.DataVencimento.Date < dtVencIni) return false;
-                if (dtVencFinal != DateTime.MaxValue && t.DataVencimento.Date > dtVencFinal) return false;
-
+                if (dtEm != DateTime.MinValue && t.DataEmissao.Date != dtEm) return false;
+                if (dtVIni != DateTime.MinValue && t.DataVencimento.Date < dtVIni) return false;
+                if (dtVFim != DateTime.MaxValue && t.DataVencimento.Date > dtVFim) return false;
                 return true;
             }).ToList();
 
@@ -235,33 +299,23 @@ namespace Sistema_Financeiro.Form_Relatorios
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            txtCodCliente.Clear();
-            txtNomeClienteFinan.Clear();
-            txtIdTituloFinan.Clear();
-            txtValorMinFinan.Clear();
-            txtValorMaxFinan.Clear();
-
-            // Só seta index se tiver itens
-            if (cmbStatusFinan.Items.Count > 0)
-                cmbStatusFinan.SelectedIndex = 0;
-            else
-                cmbStatusFinan.SelectedIndex = -1;
-
-            dtpEmissaoFinan.Checked = false;
-            dtpVencimentoIniFinan.Checked = false;
-            dtpVencimentoFinalFinan.Checked = false;
-            dtpEmissaoFinan.Value = DateTime.Today;
-            dtpVencimentoIniFinan.Value = DateTime.Today;
-            dtpVencimentoFinalFinan.Value = DateTime.Today;
-
+            txtCodCliente.Clear(); txtNomeCliente.Clear();
+            txtIdTitulo.Clear(); txtValorMin.Clear(); txtValorMax.Clear();
+            if (cmbStatus.Items.Count > 0) cmbStatus.SelectedIndex = 0;
+            dtpEmissao.Checked = false;
+            dtpVencIni.Checked = false;
+            dtpVencFim.Checked = false;
             _filtrados = new List<ContaReceber>(_todos);
             PreencherGrid(_filtrados);
         }
 
-
-        private void dgvTitulos_SelectionChanged(object sender, EventArgs e)
+        // ── Totalizadores ─────────────────────────────────────────────
+        private void AtualizarTotais(List<ContaReceber> lista)
         {
-
+            lblTotalTitulos.Text = lista.Count.ToString();
+            lblTotalAReceber.Text = lista.Sum(t => t.ValorAReceber).ToString("C2", _ptBR);
+            lblTotalRecebido.Text = lista.Sum(t => t.ValorRecebido).ToString("C2", _ptBR);
+            lblTotalSaldo.Text = lista.Sum(t => t.Diferenca).ToString("C2", _ptBR);
         }
     }
 }

@@ -1,23 +1,23 @@
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.csproj.AssemblyReference.cache
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Configuracao.Formconfiguracoes.resources
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Financeiro.resources
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Formularios.Cadastro_de_Cliente.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Dashboard.resources
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_Cadastros.EditarCliente.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_ContaReceber.AlterarTitulo.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_ContaReceber.EstornarTitulo.resources
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_ContaReceber.LancarTitulo.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_ContaReceber.LancarTituloRecebido.resources
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_Relatorios.Rel_Clientes.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_Relatorios.TitulosAReceber.resources
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Properties.Resources.resources
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.csproj.GenerateResource.cache
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.csproj.CoreCompileInputs.cache
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Sistema Financeiro.exe.config
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Sistema Financeiro.exe
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Sistema Financeiro.pdb
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Newtonsoft.Json.dll
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Newtonsoft.Json.xml
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema .A36B3528.Up2Date
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.exe
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.pdb
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_ContaReceber.AlterarTitulo.resources
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_ContaReceber.LancarTituloRecebido.resources
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Newtonsoft.Json.dll
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Buffers.dll
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.IO.Pipelines.dll
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Memory.dll
@@ -27,6 +27,7 @@ C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Tex
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Text.Json.dll
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\Newtonsoft.Json.xml
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Buffers.xml
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.IO.Pipelines.xml
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Memory.xml
@@ -35,7 +36,6 @@ C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Run
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Text.Encodings.Web.xml
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Text.Json.xml
 C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Configuracao.Formconfiguracoes.resources
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_Relatorios.TitulosAReceber.resources
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Dashboard.resources
-C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema_Financeiro.Form_ContaReceber.EstornarTitulo.resources
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema .A36B3528.Up2Date
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.exe
+C:\PROJETO\Financeiro\Sistema Financeiro\Sistema Financeiro\obj\Debug\Sistema Financeiro.pdb
